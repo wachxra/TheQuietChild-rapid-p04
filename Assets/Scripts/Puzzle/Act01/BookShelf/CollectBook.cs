@@ -1,14 +1,25 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CollectBook : MonoBehaviour
 {
     public BookPuzzleManager puzzleManager;
+    public int bookIndex;
 
-    void OnMouseDown()
+    private Button button;
+
+    void Awake()
+    {
+        button = GetComponent<Button>();
+        if (button != null)
+            button.onClick.AddListener(OnCollect);
+    }
+
+    public void OnCollect()
     {
         if (puzzleManager != null)
         {
-            puzzleManager.AddExtraBook();
+            puzzleManager.AddExtraBook(bookIndex);
         }
 
         Destroy(gameObject);

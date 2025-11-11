@@ -1,16 +1,15 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class BookSlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
-    [Header("Book Data")]
-    public int bookNumber;
     [HideInInspector] public BookPuzzleManager manager;
 
+    private RectTransform rectTransform;
+    private Canvas canvas;
     private Transform originalParent;
     private int originalIndex;
-    private Canvas canvas;
-    private RectTransform rectTransform;
 
     void Awake()
     {
@@ -27,7 +26,6 @@ public class BookSlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
 
     public void OnDrag(PointerEventData eventData)
     {
-        if (rectTransform == null || canvas == null) return;
         rectTransform.anchoredPosition += eventData.delta / canvas.scaleFactor;
     }
 
@@ -35,21 +33,9 @@ public class BookSlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
     {
         if (originalParent == null || manager == null) return;
 
-        foreach (Transform child in originalParent)
-        {
-            if (child == transform) continue;
-
-            RectTransform otherRect = child.GetComponent<RectTransform>();
-            if (RectTransformUtility.RectangleContainsScreenPoint(otherRect, eventData.position))
-            {
-                manager.SwapBooks(this, child.GetComponent<BookSlot>());
-                transform.SetParent(originalParent);
-                transform.SetSiblingIndex(originalIndex);
-                return;
-            }
-        }
-
+        int closestIndex = manager.GetClosestIndex(rectTransform.position, this);
+        manager.ReorderBook(this, closestIndex);
         transform.SetParent(originalParent);
-        transform.SetSiblingIndex(originalIndex);
+        rectTransform.anchoredPosition = Vector2.zero;
     }
 }
