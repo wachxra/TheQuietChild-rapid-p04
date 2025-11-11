@@ -4,7 +4,7 @@ using UnityEngine.UI;
 public class CollectBook : MonoBehaviour
 {
     public BookPuzzleManager puzzleManager;
-    public int bookIndex;
+    public BookSlot slotToActivate;
 
     private Button button;
 
@@ -17,9 +17,9 @@ public class CollectBook : MonoBehaviour
 
     public void OnCollect()
     {
-        if (puzzleManager != null)
+        if (puzzleManager != null && slotToActivate != null)
         {
-            puzzleManager.AddExtraBook(bookIndex);
+            puzzleManager.AddExtraBook(slotToActivate);
         }
 
         Destroy(gameObject);

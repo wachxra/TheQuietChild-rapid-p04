@@ -3,7 +3,7 @@ using TMPro;
 using UnityEngine.UI;
 using System.Collections.Generic;
 
-public class NotebookManager : MonoBehaviour
+public class Diary : MonoBehaviour
 {
     [Header("UI References")]
     public GameObject notebookPanel;

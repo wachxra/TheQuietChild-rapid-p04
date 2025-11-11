@@ -1,96 +1,98 @@
-using UnityEngine;
-using UnityEngine.UI;
+﻿using UnityEngine;
 using System.Collections.Generic;
 
 public class BookPuzzleManager : MonoBehaviour
 {
-    [Header("Book Puzzle Settings")]
-    public Transform bookParent;
-    public GameObject bookPrefab;
-    public int totalBooks = 9;
+    [Header("Book Slots (Drag & Drop in Inspector)")]
+    public List<BookSlot> bookSlots;
+
+    [Header("Correct Order by Index")]
     public List<int> correctOrder;
 
-    private List<BookSlot> bookSlots = new List<BookSlot>();
-    private HashSet<int> collectedBooks = new HashSet<int>();
+    [Header("Initially Disabled Books")]
+    public List<BookSlot> disabledBooks;
+
+    [Header("Diary Reference")]
+    public Diary diary;
+    public string diaryNote = "New diary entry from book puzzle.";
+
+    private HashSet<BookSlot> collectedBooks = new HashSet<BookSlot>();
+    private bool puzzleCompleted = false;
 
     void Start()
     {
-        SpawnInitialBooks();
-    }
-
-    void SpawnInitialBooks()
-    {
-        for (int i = 0; i < totalBooks - 1; i++)
+        for (int i = 0; i < bookSlots.Count; i++)
         {
-            CreateBook(i);
+            bookSlots[i].manager = this;
+            bookSlots[i].bookIndex = i;
+            bookSlots[i].canDrag = true;
+        }
+
+        foreach (var slot in disabledBooks)
+        {
+            if (slot != null)
+                slot.gameObject.SetActive(false);
         }
     }
 
-    public void AddExtraBook(int bookIndex)
+    public void AddExtraBook(BookSlot slot)
     {
-        if (collectedBooks.Contains(bookIndex)) return;
+        if (collectedBooks.Contains(slot)) return;
 
-        collectedBooks.Add(bookIndex);
-        CreateBook(bookIndex);
+        collectedBooks.Add(slot);
+
+        CheckPuzzleComplete();
     }
 
-    void CreateBook(int index)
+    public void SwapBooks(BookSlot draggedSlot, int targetIndex)
     {
-        GameObject newBook = Instantiate(bookPrefab, bookParent);
-        BookSlot slot = newBook.GetComponent<BookSlot>();
-        if (slot != null)
+        if (puzzleCompleted) return;
+
+        int originalIndex = draggedSlot.transform.GetSiblingIndex();
+
+        for (int i = 0; i < bookSlots.Count; i++)
         {
-            slot.manager = this;
-            bookSlots.Add(slot);
-        }
-    }
-
-    public int GetClosestIndex(Vector3 worldPos, BookSlot dragged)
-    {
-        int closestIndex = 0;
-        float closestDistance = float.MaxValue;
-
-        for (int i = 0; i < bookParent.childCount; i++)
-        {
-            Transform child = bookParent.GetChild(i);
-            if (child == dragged.transform) continue;
-
-            float distance = Vector3.Distance(worldPos, child.position);
-            if (distance < closestDistance)
+            var slot = bookSlots[i];
+            if (slot == draggedSlot) continue;
+            int sibling = slot.transform.GetSiblingIndex();
+            if (originalIndex < targetIndex)
             {
-                closestDistance = distance;
-                closestIndex = i;
+                if (sibling > originalIndex && sibling <= targetIndex)
+                    slot.transform.SetSiblingIndex(sibling - 1);
+            }
+            else if (originalIndex > targetIndex)
+            {
+                if (sibling >= targetIndex && sibling < originalIndex)
+                    slot.transform.SetSiblingIndex(sibling + 1);
             }
         }
 
-        return closestIndex;
+        draggedSlot.transform.SetSiblingIndex(targetIndex);
+
+        CheckPuzzleComplete();
     }
 
-    public void ReorderBook(BookSlot dragged, int targetIndex)
+    void CheckPuzzleComplete()
     {
-        int currentIndex = dragged.transform.GetSiblingIndex();
-        dragged.transform.SetSiblingIndex(targetIndex);
-
-        for (int i = 0; i < bookParent.childCount; i++)
+        for (int i = 0; i < correctOrder.Count && i < bookSlots.Count; i++)
         {
-            if (bookParent.GetChild(i) == dragged.transform) continue;
-            bookParent.GetChild(i).SetSiblingIndex(i < targetIndex ? i : i + 1);
+            BookSlot slot = bookSlots[i];
+            if (!slot.gameObject.activeSelf || slot.bookIndex != correctOrder[i])
+                return;
         }
+
+        PuzzleCompleted();
     }
 
-    /*public void CheckPuzzleComplete()
+    void PuzzleCompleted()
     {
-        bool isCorrect = true;
-        for (int i = 0; i < correctOrder.Count && i < bookParent.childCount; i++)
-        {
-            BookSlot slot = bookParent.GetChild(i).GetComponent<BookSlot>();
-            if (slot == null || slot.GetSiblingIndex() != correctOrder[i])
-            {
-                isCorrect = false;
-                break;
-            }
-        }
+        puzzleCompleted = true;
 
-        if (isCorrect) Debug.Log("Puzzle Complete!");
-    }*/
+        foreach (var slot in bookSlots)
+            slot.canDrag = false;
+
+        Debug.Log("Puzzle Complete!");
+        if (diary != null)
+            diary.AddNewPage(diaryNote);
+    }
 }
