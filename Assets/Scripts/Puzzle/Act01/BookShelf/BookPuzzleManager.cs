@@ -41,6 +41,17 @@ public class BookPuzzleManager : MonoBehaviour
 
         collectedBooks.Add(slot);
 
+        slot.gameObject.SetActive(true);
+        slot.transform.SetParent(bookSlots[0].transform.parent);
+
+        if (!bookSlots.Contains(slot))
+            bookSlots.Add(slot);
+
+        for (int i = 0; i < bookSlots.Count; i++)
+        {
+            bookSlots[i].transform.SetSiblingIndex(i);
+        }
+
         CheckPuzzleComplete();
     }
 
