@@ -132,7 +132,7 @@ GameObject:
   - component: {fileID: 41119209}
   - component: {fileID: 41119211}
   m_Layer: 5
-  m_Name: 1 (7)
+  m_Name: 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1002,7 +1002,7 @@ GameObject:
   - component: {fileID: 540814922}
   - component: {fileID: 540814924}
   m_Layer: 5
-  m_Name: 1 (4)
+  m_Name: 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1364,7 +1364,7 @@ GameObject:
   - component: {fileID: 635444155}
   - component: {fileID: 635444157}
   m_Layer: 5
-  m_Name: 1 (1)
+  m_Name: 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2109,7 +2109,7 @@ GameObject:
   - component: {fileID: 930697937}
   - component: {fileID: 930697939}
   m_Layer: 5
-  m_Name: 1 (2)
+  m_Name: 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2277,7 +2277,7 @@ GameObject:
   - component: {fileID: 960062463}
   - component: {fileID: 960062465}
   m_Layer: 5
-  m_Name: 1 (3)
+  m_Name: 5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2595,7 +2595,7 @@ GameObject:
   - component: {fileID: 1112117487}
   - component: {fileID: 1112117489}
   m_Layer: 5
-  m_Name: 1 (6)
+  m_Name: 6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4424,7 +4424,7 @@ GameObject:
   - component: {fileID: 1962278913}
   - component: {fileID: 1962278915}
   m_Layer: 5
-  m_Name: 1 (8)
+  m_Name: 8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4807,7 +4807,7 @@ GameObject:
   - component: {fileID: 2079145167}
   - component: {fileID: 2079145169}
   m_Layer: 5
-  m_Name: 1 (5)
+  m_Name: 7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4979,7 +4979,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5073309697296340662, guid: 093eb31021e2a8b4993e11a348f6ef43, type: 3}
       propertyPath: m_Name
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5073309697296340662, guid: 093eb31021e2a8b4993e11a348f6ef43, type: 3}
       propertyPath: m_IsActive
