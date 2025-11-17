@@ -44,7 +44,7 @@ public class Diary : MonoBehaviour
         notebookPanel.SetActive(false);
     }
 
-    public void AddNewPage(string newText)
+    private void AddNewPage(string newText)
     {
         pages.Add(newText);
         currentPage = pages.Count - 1;

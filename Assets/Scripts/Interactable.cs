@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI; // ต้องมีถ้าจะใช้ปุ่ม UI
 
 public enum InteractType
 {
@@ -9,8 +10,46 @@ public enum InteractType
 public class Interactable : MonoBehaviour
 {
     public InteractType interactType;
+
     [TextArea] public string message;
+
+    [Header("Single Panel (Default)")]
     public GameObject panelToOpen;
+
+    [Header("Multiple Panels (Optional)")]
+    public GameObject[] switchablePanels;
+
+    [Header("UI Buttons (Optional)")]
+    public Button upButton;
+    public Button downButton;
+
+    private int currentIndex = 0;
+    private bool switchingEnabled = false;
+
+    void Start()
+    {
+        // เชื่อมปุ่มหากมีใส่มา
+        if (upButton != null)
+            upButton.onClick.AddListener(SwitchUpUI);
+
+        if (downButton != null)
+            downButton.onClick.AddListener(SwitchDownUI);
+    }
+
+    void Update()
+    {
+        if (!switchingEnabled) return;
+
+        // กดคีย์บอร์ดก็ยังใช้ได้
+        if (Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            SwitchPanel(-1);
+        }
+        else if (Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            SwitchPanel(1);
+        }
+    }
 
     public void Interact()
     {
@@ -19,10 +58,66 @@ public class Interactable : MonoBehaviour
             case InteractType.ShowText:
                 UIManager.Instance.ToggleDialogue(message);
                 break;
+
             case InteractType.OpenPanel:
-                if (panelToOpen != null)
-                    UIManager.Instance.TogglePuzzlePanel(panelToOpen);
+
+                if (switchablePanels != null && switchablePanels.Length > 1)
+                {
+                    switchingEnabled = true;
+
+                    // แสดงปุ่มเฉพาะ when switching
+                    if (upButton != null) upButton.gameObject.SetActive(true);
+                    if (downButton != null) downButton.gameObject.SetActive(true);
+
+                    foreach (var p in switchablePanels)
+                        p.SetActive(false);
+
+                    currentIndex = 0;
+                    switchablePanels[currentIndex].SetActive(true);
+                }
+                else
+                {
+                    switchingEnabled = false;
+
+                    // ซ่อนปุ่มเวลาไม่ได้ใช้ระบบสลับหน้า
+                    if (upButton != null) upButton.gameObject.SetActive(false);
+                    if (downButton != null) downButton.gameObject.SetActive(false);
+
+                    if (panelToOpen != null)
+                    {
+                        UIManager.Instance.TogglePuzzlePanel(panelToOpen);
+                    }
+                }
                 break;
         }
+    }
+
+    private void SwitchPanel(int direction)
+    {
+        switchablePanels[currentIndex].SetActive(false);
+
+        currentIndex += direction;
+
+        if (currentIndex < 0)
+            currentIndex = switchablePanels.Length - 1;
+        else if (currentIndex >= switchablePanels.Length)
+            currentIndex = 0;
+
+        switchablePanels[currentIndex].SetActive(true);
+    }
+
+    // -------------------------
+    //  ฟังก์ชันสำหรับปุ่ม UI
+    // -------------------------
+    public void SwitchUpUI()
+    {
+        if (switchingEnabled)
+            SwitchPanel(-1);
+    }
+
+    public void SwitchDownUI()
+    {
+        if (switchingEnabled)
+            SwitchPanel(1);
     }
 }

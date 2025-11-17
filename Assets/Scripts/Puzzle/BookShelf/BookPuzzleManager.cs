@@ -103,8 +103,6 @@ public class BookPuzzleManager : MonoBehaviour
             slot.canDrag = false;
 
         Debug.Log("Puzzle Complete!");
-        /*if (diary != null)
-            diary.AddNewPage(diaryNote);*/
 
         Diary diary = FindFirstObjectByType<Diary>();
         diary.AddNextPreparedPage();
