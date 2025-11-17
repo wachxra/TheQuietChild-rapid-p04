@@ -1,5 +1,5 @@
 using UnityEngine;
-using UnityEngine.UI; // ต้องมีถ้าจะใช้ปุ่ม UI
+using UnityEngine.UI;
 
 public enum InteractType
 {
@@ -28,7 +28,6 @@ public class Interactable : MonoBehaviour
 
     void Start()
     {
-        // เชื่อมปุ่มหากมีใส่มา
         if (upButton != null)
             upButton.onClick.AddListener(SwitchUpUI);
 
@@ -40,7 +39,6 @@ public class Interactable : MonoBehaviour
     {
         if (!switchingEnabled) return;
 
-        // กดคีย์บอร์ดก็ยังใช้ได้
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
             SwitchPanel(-1);
@@ -65,7 +63,6 @@ public class Interactable : MonoBehaviour
                 {
                     switchingEnabled = true;
 
-                    // แสดงปุ่มเฉพาะ when switching
                     if (upButton != null) upButton.gameObject.SetActive(true);
                     if (downButton != null) downButton.gameObject.SetActive(true);
 
@@ -79,7 +76,6 @@ public class Interactable : MonoBehaviour
                 {
                     switchingEnabled = false;
 
-                    // ซ่อนปุ่มเวลาไม่ได้ใช้ระบบสลับหน้า
                     if (upButton != null) upButton.gameObject.SetActive(false);
                     if (downButton != null) downButton.gameObject.SetActive(false);
 
@@ -106,9 +102,6 @@ public class Interactable : MonoBehaviour
         switchablePanels[currentIndex].SetActive(true);
     }
 
-    // -------------------------
-    //  ฟังก์ชันสำหรับปุ่ม UI
-    // -------------------------
     public void SwitchUpUI()
     {
         if (switchingEnabled)
