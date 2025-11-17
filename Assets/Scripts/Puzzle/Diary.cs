@@ -16,7 +16,12 @@ public class Diary : MonoBehaviour
     [TextArea(3, 6)]
     public List<string> pages = new List<string>();
 
+    [Header("Prepared Notes (Add in Inspector)")]
+    [TextArea(3, 6)]
+    public List<string> preparedPages = new List<string>();
+
     private int currentPage = 0;
+    private int nextPreparedIndex = 0;
 
     void Start()
     {
@@ -42,7 +47,21 @@ public class Diary : MonoBehaviour
     public void AddNewPage(string newText)
     {
         pages.Add(newText);
+        currentPage = pages.Count - 1;
         UpdateNotebookUI();
+    }
+
+    public void AddNextPreparedPage()
+    {
+        if (nextPreparedIndex < preparedPages.Count)
+        {
+            AddNewPage(preparedPages[nextPreparedIndex]);
+            nextPreparedIndex++;
+        }
+        else
+        {
+            Debug.LogWarning("No more prepared pages left!");
+        }
     }
 
     public void NextPage()
