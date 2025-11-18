@@ -1,20 +1,26 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 
+[System.Serializable]
+public class SlotBookPair
+{
+    public BookSlot slot;
+    public int correctBookIndex;
+}
+
 public class BookPuzzleManager : MonoBehaviour
 {
     [Header("Book Slots (Drag & Drop in Inspector)")]
     public List<BookSlot> bookSlots;
 
-    [Header("Correct Order by Index")]
-    public List<int> correctOrder;
+    [Header("Slot-Book Pairs for Puzzle Completion")]
+    public List<SlotBookPair> correctPairs;
 
     [Header("Initially Disabled Books")]
     public List<BookSlot> disabledBooks;
 
     [Header("Diary Reference")]
     public Diary diary;
-    public string diaryNote = "New diary entry from book puzzle.";
 
     private HashSet<BookSlot> collectedBooks = new HashSet<BookSlot>();
     private bool puzzleCompleted = false;
@@ -24,7 +30,6 @@ public class BookPuzzleManager : MonoBehaviour
         for (int i = 0; i < bookSlots.Count; i++)
         {
             bookSlots[i].manager = this;
-            bookSlots[i].bookIndex = i;
             bookSlots[i].canDrag = true;
         }
 
@@ -51,8 +56,6 @@ public class BookPuzzleManager : MonoBehaviour
         {
             bookSlots[i].transform.SetSiblingIndex(i);
         }
-
-        CheckPuzzleComplete();
     }
 
     public void SwapBooks(BookSlot draggedSlot, int targetIndex)
@@ -65,7 +68,9 @@ public class BookPuzzleManager : MonoBehaviour
         {
             var slot = bookSlots[i];
             if (slot == draggedSlot) continue;
+
             int sibling = slot.transform.GetSiblingIndex();
+
             if (originalIndex < targetIndex)
             {
                 if (sibling > originalIndex && sibling <= targetIndex)
@@ -80,15 +85,20 @@ public class BookPuzzleManager : MonoBehaviour
 
         draggedSlot.transform.SetSiblingIndex(targetIndex);
 
+        for (int i = 0; i < bookSlots.Count; i++)
+            bookSlots[i].currentSlotIndex = bookSlots[i].transform.GetSiblingIndex();
+
         CheckPuzzleComplete();
     }
 
     void CheckPuzzleComplete()
     {
-        for (int i = 0; i < correctOrder.Count && i < bookSlots.Count; i++)
+        foreach (var pair in correctPairs)
         {
-            BookSlot slot = bookSlots[i];
-            if (!slot.gameObject.activeSelf || slot.bookIndex != correctOrder[i])
+            BookSlot slot = pair.slot;
+            int correctIndex = pair.correctBookIndex;
+
+            if (!slot.gameObject.activeSelf || slot.currentSlotIndex != correctIndex)
                 return;
         }
 
@@ -104,7 +114,7 @@ public class BookPuzzleManager : MonoBehaviour
 
         Debug.Log("Puzzle Complete!");
 
-        Diary diary = FindFirstObjectByType<Diary>();
-        diary.AddNextPreparedPage();
+        if (diary != null)
+            diary.AddNextPreparedPage();
     }
 }

@@ -27,8 +27,6 @@ public class Interactable : MonoBehaviour
     private int currentIndex = 0;
     private bool switchingEnabled = false;
 
-    private bool isPanelOpen = false;
-
     void Start()
     {
         if (upButton != null)
@@ -78,8 +76,6 @@ public class Interactable : MonoBehaviour
                     switchablePanels[currentIndex].SetActive(true);
 
                     UIManager.Instance.TogglePuzzlePanel(switchablePanels[currentIndex]);
-
-                    isPanelOpen = true;
                 }
                 else
                 {
@@ -93,8 +89,6 @@ public class Interactable : MonoBehaviour
                     {
                         UIManager.Instance.TogglePuzzlePanel(panelToOpen);
                     }
-
-                    isPanelOpen = true;
                 }
                 break;
         }
@@ -130,7 +124,6 @@ public class Interactable : MonoBehaviour
     public void BackUI()
     {
         switchingEnabled = false;
-        isPanelOpen = false;
 
         if (upButton != null) upButton.gameObject.SetActive(false);
         if (downButton != null) downButton.gameObject.SetActive(false);

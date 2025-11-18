@@ -210,6 +210,8 @@ MonoBehaviour:
   manager: {fileID: 0}
   bookIndex: 0
   canDrag: 1
+  currentSlotIndex: 0
+  allowedBookIndex: 4
 --- !u!1 &50145670
 GameObject:
   m_ObjectHideFlags: 0
@@ -1043,7 +1045,7 @@ MonoBehaviour:
   switchablePanels: []
   upButton: {fileID: 0}
   downButton: {fileID: 0}
-  backButton: {fileID: 0}
+  backButton: {fileID: 1136280655}
 --- !u!61 &311269060
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2217,6 +2219,8 @@ MonoBehaviour:
   manager: {fileID: 0}
   bookIndex: 0
   canDrag: 1
+  currentSlotIndex: 0
+  allowedBookIndex: 2
 --- !u!1 &547856626
 GameObject:
   m_ObjectHideFlags: 0
@@ -2945,6 +2949,8 @@ MonoBehaviour:
   manager: {fileID: 0}
   bookIndex: 0
   canDrag: 1
+  currentSlotIndex: 0
+  allowedBookIndex: 1
 --- !u!1 &638836038
 GameObject:
   m_ObjectHideFlags: 0
@@ -3307,11 +3313,28 @@ MonoBehaviour:
   - {fileID: 1112117489}
   - {fileID: 41119211}
   - {fileID: 1962278915}
-  correctOrder: 000000000100000002000000030000000400000005000000060000000700000008000000
+  correctPairs:
+  - slot: {fileID: 1685012263}
+    correctBookIndex: 0
+  - slot: {fileID: 635444157}
+    correctBookIndex: 1
+  - slot: {fileID: 930697939}
+    correctBookIndex: 3
+  - slot: {fileID: 960062465}
+    correctBookIndex: 5
+  - slot: {fileID: 540814924}
+    correctBookIndex: 2
+  - slot: {fileID: 2079145169}
+    correctBookIndex: 7
+  - slot: {fileID: 1112117489}
+    correctBookIndex: 6
+  - slot: {fileID: 41119211}
+    correctBookIndex: 4
+  - slot: {fileID: 1962278915}
+    correctBookIndex: 8
   disabledBooks:
   - {fileID: 1962278915}
   diary: {fileID: 578197290}
-  diaryNote: New Note
 --- !u!4 &708221705
 Transform:
   m_ObjectHideFlags: 0
@@ -4219,6 +4242,8 @@ MonoBehaviour:
   manager: {fileID: 0}
   bookIndex: 0
   canDrag: 1
+  currentSlotIndex: 0
+  allowedBookIndex: 3
 --- !u!1 &933929336
 GameObject:
   m_ObjectHideFlags: 0
@@ -4388,6 +4413,8 @@ MonoBehaviour:
   manager: {fileID: 0}
   bookIndex: 0
   canDrag: 1
+  currentSlotIndex: 0
+  allowedBookIndex: 5
 --- !u!1 &1013758593
 GameObject:
   m_ObjectHideFlags: 0
@@ -5142,6 +5169,8 @@ MonoBehaviour:
   manager: {fileID: 0}
   bookIndex: 0
   canDrag: 1
+  currentSlotIndex: 0
+  allowedBookIndex: 6
 --- !u!1 &1117358962
 GameObject:
   m_ObjectHideFlags: 0
@@ -7897,6 +7926,8 @@ MonoBehaviour:
   manager: {fileID: 0}
   bookIndex: 0
   canDrag: 1
+  currentSlotIndex: 0
+  allowedBookIndex: 8
 --- !u!1 &1978298718
 GameObject:
   m_ObjectHideFlags: 0
@@ -8747,6 +8778,8 @@ MonoBehaviour:
   manager: {fileID: 0}
   bookIndex: 0
   canDrag: 1
+  currentSlotIndex: 0
+  allowedBookIndex: 7
 --- !u!1001 &2510807386597788485
 PrefabInstance:
   m_ObjectHideFlags: 0
