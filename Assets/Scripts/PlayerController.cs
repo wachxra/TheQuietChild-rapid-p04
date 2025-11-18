@@ -32,12 +32,6 @@ public class PlayerController : MonoBehaviour
         if (UIManager.Instance != null && UIManager.Instance.IsUIOpen)
         {
             movement = Vector2.zero;
-
-            if (Input.GetKeyDown(KeyCode.E))
-            {
-                UIManager.Instance.CloseDialogue();
-                UIManager.Instance.ClosePuzzlePanel();
-            }
             return;
         }
 

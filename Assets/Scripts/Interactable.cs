@@ -27,6 +27,8 @@ public class Interactable : MonoBehaviour
     private int currentIndex = 0;
     private bool switchingEnabled = false;
 
+    private bool isPanelOpen = false;
+
     void Start()
     {
         if (upButton != null)
@@ -44,13 +46,9 @@ public class Interactable : MonoBehaviour
         if (!switchingEnabled) return;
 
         if (Input.GetKeyDown(KeyCode.UpArrow))
-        {
             SwitchPanel(-1);
-        }
         else if (Input.GetKeyDown(KeyCode.DownArrow))
-        {
             SwitchPanel(1);
-        }
     }
 
     public void Interact()
@@ -62,6 +60,8 @@ public class Interactable : MonoBehaviour
                 break;
 
             case InteractType.OpenPanel:
+                if (UIManager.Instance != null && UIManager.Instance.IsUIOpen)
+                    return;
 
                 if (switchablePanels != null && switchablePanels.Length > 1)
                 {
@@ -76,6 +76,10 @@ public class Interactable : MonoBehaviour
 
                     currentIndex = 0;
                     switchablePanels[currentIndex].SetActive(true);
+
+                    UIManager.Instance.TogglePuzzlePanel(switchablePanels[currentIndex]);
+
+                    isPanelOpen = true;
                 }
                 else
                 {
@@ -89,6 +93,8 @@ public class Interactable : MonoBehaviour
                     {
                         UIManager.Instance.TogglePuzzlePanel(panelToOpen);
                     }
+
+                    isPanelOpen = true;
                 }
                 break;
         }
@@ -99,13 +105,14 @@ public class Interactable : MonoBehaviour
         switchablePanels[currentIndex].SetActive(false);
 
         currentIndex += direction;
-
         if (currentIndex < 0)
             currentIndex = switchablePanels.Length - 1;
         else if (currentIndex >= switchablePanels.Length)
             currentIndex = 0;
 
         switchablePanels[currentIndex].SetActive(true);
+
+        UIManager.Instance.TogglePuzzlePanel(switchablePanels[currentIndex]);
     }
 
     public void SwitchUpUI()
@@ -123,6 +130,7 @@ public class Interactable : MonoBehaviour
     public void BackUI()
     {
         switchingEnabled = false;
+        isPanelOpen = false;
 
         if (upButton != null) upButton.gameObject.SetActive(false);
         if (downButton != null) downButton.gameObject.SetActive(false);
