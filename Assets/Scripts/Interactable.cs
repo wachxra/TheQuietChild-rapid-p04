@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public enum InteractType
@@ -22,6 +22,7 @@ public class Interactable : MonoBehaviour
     [Header("UI Buttons (Optional)")]
     public Button upButton;
     public Button downButton;
+    public Button backButton;
 
     private int currentIndex = 0;
     private bool switchingEnabled = false;
@@ -33,6 +34,9 @@ public class Interactable : MonoBehaviour
 
         if (downButton != null)
             downButton.onClick.AddListener(SwitchDownUI);
+
+        if (backButton != null)
+            backButton.onClick.AddListener(BackUI);
     }
 
     void Update()
@@ -65,6 +69,7 @@ public class Interactable : MonoBehaviour
 
                     if (upButton != null) upButton.gameObject.SetActive(true);
                     if (downButton != null) downButton.gameObject.SetActive(true);
+                    if (backButton != null) backButton.gameObject.SetActive(true);
 
                     foreach (var p in switchablePanels)
                         p.SetActive(false);
@@ -78,6 +83,7 @@ public class Interactable : MonoBehaviour
 
                     if (upButton != null) upButton.gameObject.SetActive(false);
                     if (downButton != null) downButton.gameObject.SetActive(false);
+                    if (backButton != null) backButton.gameObject.SetActive(true);
 
                     if (panelToOpen != null)
                     {
@@ -112,5 +118,29 @@ public class Interactable : MonoBehaviour
     {
         if (switchingEnabled)
             SwitchPanel(1);
+    }
+
+    public void BackUI()
+    {
+        switchingEnabled = false;
+
+        if (upButton != null) upButton.gameObject.SetActive(false);
+        if (downButton != null) downButton.gameObject.SetActive(false);
+        if (backButton != null) backButton.gameObject.SetActive(false);
+
+        if (switchablePanels != null && switchablePanels.Length > 0)
+        {
+            foreach (var p in switchablePanels)
+                p.SetActive(false);
+        }
+
+        if (panelToOpen != null)
+            panelToOpen.SetActive(false);
+
+        if (UIManager.Instance != null)
+        {
+            UIManager.Instance.ClosePuzzlePanel();
+            UIManager.Instance.CloseDialogue();
+        }
     }
 }
