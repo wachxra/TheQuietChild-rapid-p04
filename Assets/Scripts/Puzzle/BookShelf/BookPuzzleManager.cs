@@ -98,6 +98,8 @@ public class BookPuzzleManager : MonoBehaviour
             BookSlot slot = pair.slot;
             int correctIndex = pair.correctBookIndex;
 
+            Debug.Log($"Checking Slot: {slot.name}. Current Index: {slot.currentSlotIndex}, Required Index: {correctIndex}. Is Active: {slot.gameObject.activeSelf}");
+
             if (!slot.gameObject.activeSelf || slot.currentSlotIndex != correctIndex)
                 return;
         }

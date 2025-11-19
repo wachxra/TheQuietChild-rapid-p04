@@ -58,6 +58,16 @@ public class Interactable : MonoBehaviour
                 break;
 
             case InteractType.OpenPanel:
+                if (panelToOpen != null && panelToOpen.CompareTag("DoorPanel"))
+                {
+                    Diary diary = Object.FindFirstObjectByType<Diary>();
+                    if (diary != null && !diary.IsAllPreparedPagesCollected())
+                    {
+                        Debug.Log("Cannot open door yet! Collect all pages first.");
+                        return;
+                    }
+                }
+
                 if (UIManager.Instance != null && UIManager.Instance.IsUIOpen)
                     return;
 

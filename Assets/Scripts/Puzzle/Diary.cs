@@ -98,4 +98,9 @@ public class Diary : MonoBehaviour
         nextButton.interactable = currentPage < pages.Count - 1;
         prevButton.interactable = currentPage > 0;
     }
+
+    public bool IsAllPreparedPagesCollected()
+    {
+        return nextPreparedIndex >= preparedPages.Count;
+    }
 }
