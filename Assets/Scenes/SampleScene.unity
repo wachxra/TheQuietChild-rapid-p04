@@ -1569,7 +1569,6 @@ GameObject:
   - component: {fileID: 214549775}
   - component: {fileID: 214549777}
   - component: {fileID: 214549776}
-  - component: {fileID: 214549778}
   - component: {fileID: 214549779}
   m_Layer: 5
   m_Name: Octopus05_Image
@@ -1635,21 +1634,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 214549774}
   m_CullTransparentMesh: 1
---- !u!114 &214549778
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 214549774}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 92b9992b45eda0f448b61562f60b919c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TentacleButton
-  buttonID: 1
-  manager: {fileID: 0}
-  button: {fileID: 0}
 --- !u!114 &214549779
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4728,62 +4712,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 719853765}
   m_CullTransparentMesh: 1
---- !u!1 &760171136
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 760171138}
-  - component: {fileID: 760171137}
-  m_Layer: 0
-  m_Name: SquidTentaclePuzzleManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &760171137
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 760171136}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2e3b624b0b4420a49b78844fd1e6027f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SquidTentaclePuzzleManager
-  rounds: 5
-  sequenceLength: 5
-  correctSequence: 0200000003000000050000000400000001000000
-  buttons:
-  - {fileID: 1746415011}
-  - {fileID: 1684728127}
-  - {fileID: 1117358967}
-  - {fileID: 1433958102}
-  - {fileID: 214549778}
-  diary: {fileID: 578197290}
-  currentIndex: 0
-  currentRound: 1
---- !u!4 &760171138
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 760171136}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 892.03107, y: 514.95715, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &762986995
 GameObject:
   m_ObjectHideFlags: 0
@@ -7226,7 +7154,6 @@ GameObject:
   - component: {fileID: 1117358963}
   - component: {fileID: 1117358965}
   - component: {fileID: 1117358964}
-  - component: {fileID: 1117358967}
   - component: {fileID: 1117358968}
   m_Layer: 5
   m_Name: Octopus03_Image
@@ -7292,21 +7219,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1117358962}
   m_CullTransparentMesh: 1
---- !u!114 &1117358967
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1117358962}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 92b9992b45eda0f448b61562f60b919c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TentacleButton
-  buttonID: 5
-  manager: {fileID: 0}
-  button: {fileID: 0}
 --- !u!114 &1117358968
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9306,7 +9218,6 @@ GameObject:
   - component: {fileID: 1433958098}
   - component: {fileID: 1433958100}
   - component: {fileID: 1433958099}
-  - component: {fileID: 1433958102}
   - component: {fileID: 1433958103}
   m_Layer: 5
   m_Name: Octopus04_Image
@@ -9372,21 +9283,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1433958097}
   m_CullTransparentMesh: 1
---- !u!114 &1433958102
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1433958097}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 92b9992b45eda0f448b61562f60b919c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TentacleButton
-  buttonID: 4
-  manager: {fileID: 0}
-  button: {fileID: 0}
 --- !u!114 &1433958103
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10168,7 +10064,6 @@ GameObject:
   - component: {fileID: 1684728124}
   - component: {fileID: 1684728126}
   - component: {fileID: 1684728125}
-  - component: {fileID: 1684728127}
   - component: {fileID: 1684728128}
   m_Layer: 5
   m_Name: Octopus02_Image
@@ -10234,21 +10129,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1684728123}
   m_CullTransparentMesh: 1
---- !u!114 &1684728127
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1684728123}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 92b9992b45eda0f448b61562f60b919c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TentacleButton
-  buttonID: 5
-  manager: {fileID: 0}
-  button: {fileID: 0}
 --- !u!114 &1684728128
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10566,7 +10446,6 @@ GameObject:
   - component: {fileID: 1746415008}
   - component: {fileID: 1746415010}
   - component: {fileID: 1746415009}
-  - component: {fileID: 1746415011}
   - component: {fileID: 1746415012}
   m_Layer: 5
   m_Name: Octopus01_Image
@@ -10632,21 +10511,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1746415007}
   m_CullTransparentMesh: 1
---- !u!114 &1746415011
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1746415007}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 92b9992b45eda0f448b61562f60b919c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TentacleButton
-  buttonID: 5
-  manager: {fileID: 0}
-  button: {fileID: 0}
 --- !u!114 &1746415012
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12792,37 +12656,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2080513390}
   m_CullTransparentMesh: 1
---- !u!1 &2146468007
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2146468009}
-  m_Layer: 0
-  m_Name: JigsawPuzzleManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2146468009
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2146468007}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 581.1, y: 440.1, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2510807386597788485
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12951,5 +12784,3 @@ SceneRoots:
   - {fileID: 708221705}
   - {fileID: 578197291}
   - {fileID: 1248007456}
-  - {fileID: 2146468009}
-  - {fileID: 760171138}
