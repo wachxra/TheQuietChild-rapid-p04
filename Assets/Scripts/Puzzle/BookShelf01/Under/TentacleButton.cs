@@ -1,4 +1,4 @@
-using UnityEngine;
+/*using UnityEngine;
 using UnityEngine.UI;
 
 public class TentacleButton : MonoBehaviour
@@ -31,4 +31,4 @@ public class TentacleButton : MonoBehaviour
     {
         button.interactable = true;
     }
-}
+}*/
