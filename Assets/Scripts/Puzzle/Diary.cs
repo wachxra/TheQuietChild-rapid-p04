@@ -30,6 +30,12 @@ public class Diary : MonoBehaviour
         nextButton.onClick.AddListener(NextPage);
         prevButton.onClick.AddListener(PrevPage);
 
+        if (pages.Count == 0 && preparedPages.Count > 0)
+        {
+            AddNewPage(preparedPages[nextPreparedIndex]);
+            nextPreparedIndex++;
+        }
+
         UpdateNotebookUI();
     }
 

@@ -7,8 +7,6 @@ public class SquidTentaclePuzzleManager : MonoBehaviour
     public List<int> correctSequence;
     public TentacleButton[] buttons;
     public Diary diary;
-
-    private int currentRound = 1;
     private List<int> playerInputs = new List<int>();
 
     public void OnButtonPressed(int buttonID)
@@ -37,9 +35,10 @@ public class SquidTentaclePuzzleManager : MonoBehaviour
 
         if (isCorrect)
         {
-            Debug.Log("Puzzle Correct");
+            Debug.Log("Puzzle Completed");
             FreezeCurrentSequence();
-            NextRound();
+
+            if (diary != null) diary.AddNextPreparedPage();
         }
         else
         {
@@ -64,17 +63,6 @@ public class SquidTentaclePuzzleManager : MonoBehaviour
         foreach (var btn in buttons)
         {
             btn.ResetButton();
-        }
-    }
-
-    private void NextRound()
-    {
-        currentRound++;
-
-        if (currentRound > rounds)
-        {
-            Debug.Log("Puzzle Completed");
-            if (diary != null) diary.AddNextPreparedPage();
         }
     }
 }
