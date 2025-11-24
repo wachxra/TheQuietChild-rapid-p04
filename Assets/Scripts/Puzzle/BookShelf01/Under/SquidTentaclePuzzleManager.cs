@@ -1,78 +1,81 @@
-﻿/*using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class SquidTentaclePuzzleManager : MonoBehaviour
 {
-    [Header("Settings")]
     public int rounds = 5;
-    public int sequenceLength = 5;
     public List<int> correctSequence;
-
-    [Header("Tentacle Buttons")]
     public TentacleButton[] buttons;
-
-    [Header("Diary Reference")]
     public Diary diary;
 
-    private int currentIndex = 0;
     private int currentRound = 1;
+    private List<int> playerInputs = new List<int>();
 
     public void OnButtonPressed(int buttonID)
     {
-        if (currentIndex >= sequenceLength)
-            return;
+        if (playerInputs.Count >= correctSequence.Count) return;
+        playerInputs.Add(buttonID);
+        Debug.Log("Pressed: " + buttonID);
 
-        if (buttonID == correctSequence[currentIndex])
+        if (playerInputs.Count == correctSequence.Count)
+            CheckSequence();
+    }
+
+    private void CheckSequence()
+    {
+        bool isCorrect = true;
+
+        for (int i = 0; i < correctSequence.Count; i++)
         {
-            currentIndex++;
-            Debug.Log("Correct press: " + buttonID);
-
-            if (currentIndex >= sequenceLength)
+            Debug.Log("Compare index " + i + " → Player: " + playerInputs[i] + " | Correct: " + correctSequence[i]);
+            if (playerInputs[i] != correctSequence[i])
             {
-                FreezeCurrentSequence();
-                NextRound();
+                isCorrect = false;
+                break;
             }
+        }
+
+        if (isCorrect)
+        {
+            Debug.Log("Puzzle Correct for Round: " + currentRound);
+            FreezeCurrentSequence();
+            NextRound();
         }
         else
         {
-            Debug.Log("Wrong! Reset round.");
+            Debug.Log("Puzzle Wrong → Reset Round: " + currentRound);
             ResetCurrentRound();
         }
+
+        playerInputs.Clear();
     }
 
     private void FreezeCurrentSequence()
     {
         foreach (var id in correctSequence)
         {
-            buttons[id].FreezeButton();
+            if (id >= 0 && id < buttons.Length)
+                buttons[id].FreezeButton();
         }
     }
 
     private void ResetCurrentRound()
     {
-        currentIndex = 0;
-
         foreach (var btn in buttons)
         {
-            if (btn.button.interactable) btn.ResetButton();
+            btn.ResetButton();
         }
     }
 
     private void NextRound()
     {
         currentRound++;
-        currentIndex = 0;
+        Debug.Log("Next Round: " + currentRound);
 
         if (currentRound > rounds)
         {
-            Debug.Log("Puzzle Complete!");
-
-            if (diary != null)
-                diary.AddNextPreparedPage();
-        }
-        else
-        {
-            Debug.Log("Start Round " + currentRound);
+            Debug.Log("Puzzle Completed All Rounds.");
+            if (diary != null) diary.AddNextPreparedPage();
         }
     }
-}*/
+}

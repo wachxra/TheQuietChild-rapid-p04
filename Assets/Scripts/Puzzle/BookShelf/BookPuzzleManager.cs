@@ -52,10 +52,12 @@ public class BookPuzzleManager : MonoBehaviour
         if (!bookSlots.Contains(slot))
             bookSlots.Add(slot);
 
+        slot.transform.SetAsLastSibling();
+
+        bookSlots.Sort((a, b) => a.transform.GetSiblingIndex().CompareTo(b.transform.GetSiblingIndex()));
+
         for (int i = 0; i < bookSlots.Count; i++)
-        {
-            bookSlots[i].transform.SetSiblingIndex(i);
-        }
+            bookSlots[i].currentSlotIndex = i;
     }
 
     public void SwapBooks(BookSlot draggedSlot, int targetIndex)
@@ -85,8 +87,10 @@ public class BookPuzzleManager : MonoBehaviour
 
         draggedSlot.transform.SetSiblingIndex(targetIndex);
 
+        bookSlots.Sort((a, b) => a.transform.GetSiblingIndex().CompareTo(b.transform.GetSiblingIndex()));
+
         for (int i = 0; i < bookSlots.Count; i++)
-            bookSlots[i].currentSlotIndex = bookSlots[i].transform.GetSiblingIndex();
+            bookSlots[i].currentSlotIndex = i;
 
         CheckPuzzleComplete();
     }

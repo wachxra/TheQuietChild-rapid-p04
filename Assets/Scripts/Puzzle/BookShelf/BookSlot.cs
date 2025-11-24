@@ -4,11 +4,8 @@ using UnityEngine.EventSystems;
 public class BookSlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     [HideInInspector] public BookPuzzleManager manager;
-    [HideInInspector] public int bookIndex;
     [HideInInspector] public bool canDrag = true;
     [HideInInspector] public int currentSlotIndex;
-
-    public int allowedBookIndex;
 
     private RectTransform rectTransform;
     private Canvas canvas;
