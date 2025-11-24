@@ -70,12 +70,6 @@ public class RainPuzzleFlow : MonoBehaviour
 
     private void TriggerRain()
     {
-        if (!hasGlass)
-        {
-            Debug.Log("Need glass first to trigger rain!");
-            return;
-        }
-
         isRaining = true;
         Debug.Log("Rain triggered! isRaining = " + isRaining);
 
