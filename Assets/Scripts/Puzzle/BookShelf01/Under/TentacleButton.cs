@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class TentacleButton : MonoBehaviour
@@ -25,10 +25,17 @@ public class TentacleButton : MonoBehaviour
     public void FreezeButton()
     {
         button.interactable = false;
+        button.onClick.RemoveAllListeners();
+
+        ColorBlock cb = button.colors;
+        cb.disabledColor = button.image.color;
+        button.colors = cb;
     }
 
     public void ResetButton()
     {
         button.interactable = true;
+        button.onClick.RemoveAllListeners();
+        button.onClick.AddListener(OnClick);
     }
 }
