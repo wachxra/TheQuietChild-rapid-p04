@@ -37,13 +37,13 @@ public class SquidTentaclePuzzleManager : MonoBehaviour
 
         if (isCorrect)
         {
-            Debug.Log("Puzzle Correct for Round: " + currentRound);
+            Debug.Log("Puzzle Correct");
             FreezeCurrentSequence();
             NextRound();
         }
         else
         {
-            Debug.Log("Puzzle Wrong → Reset Round: " + currentRound);
+            Debug.Log("Puzzle Wrong");
             ResetCurrentRound();
         }
 
@@ -70,11 +70,10 @@ public class SquidTentaclePuzzleManager : MonoBehaviour
     private void NextRound()
     {
         currentRound++;
-        Debug.Log("Next Round: " + currentRound);
 
         if (currentRound > rounds)
         {
-            Debug.Log("Puzzle Completed All Rounds.");
+            Debug.Log("Puzzle Completed");
             if (diary != null) diary.AddNextPreparedPage();
         }
     }
