@@ -38,7 +38,12 @@ public class SquidTentaclePuzzleManager : MonoBehaviour
             Debug.Log("Puzzle Completed");
             FreezeCurrentSequence();
 
-            if (diary != null) diary.AddNextPreparedPage();
+            LampPuzzle lampPuzzle = Object.FindFirstObjectByType<LampPuzzle>();
+
+            if (lampPuzzle != null)
+            {
+                lampPuzzle.ReceiveLampPart(2);
+            }
         }
         else
         {
