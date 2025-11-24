@@ -4,7 +4,6 @@ using UnityEngine.UI;
 
 public class JigsawPiece : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
-    [Tooltip("ID ของชิ้นส่วนนี้ (1 ถึง 5)")]
     public int pieceID;
 
     private RectTransform rectTransform;
@@ -32,12 +31,14 @@ public class JigsawPiece : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
         if (canvasGroup == null)
         {
             canvasGroup = gameObject.AddComponent<CanvasGroup>();
-            Debug.LogWarning($"CanvasGroup component was missing on {gameObject.name}. Added it automatically.");
         }
     }
 
     public void OnBeginDrag(PointerEventData eventData)
     {
+        var manager = UnityEngine.Object.FindAnyObjectByType<JigsawPuzzleManager>();
+        if (manager != null && !manager.puzzlePanel.activeSelf) return;
+
         if (isLocked) return;
 
         if (currentSlot != null)
@@ -59,6 +60,9 @@ public class JigsawPiece : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 
     public void OnDrag(PointerEventData eventData)
     {
+        var manager = UnityEngine.Object.FindAnyObjectByType<JigsawPuzzleManager>();
+        if (manager != null && !manager.puzzlePanel.activeSelf) return;
+
         if (isLocked) return;
 
         rectTransform.anchoredPosition += eventData.delta / transform.root.GetComponent<Canvas>().scaleFactor;
@@ -66,6 +70,9 @@ public class JigsawPiece : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 
     public void OnEndDrag(PointerEventData eventData)
     {
+        var manager = UnityEngine.Object.FindAnyObjectByType<JigsawPuzzleManager>();
+        if (manager != null && !manager.puzzlePanel.activeSelf) return;
+
         if (isLocked) return;
 
         if (canvasGroup != null)
@@ -90,7 +97,6 @@ public class JigsawPiece : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
     public void LockPiece(Transform slotTransform)
     {
         isLocked = true;
-
         rectTransform.SetParent(slotTransform);
         rectTransform.anchoredPosition = Vector2.zero;
 

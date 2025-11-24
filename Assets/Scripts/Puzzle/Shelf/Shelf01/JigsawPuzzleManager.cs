@@ -67,8 +67,6 @@ public class JigsawPuzzleManager : MonoBehaviour
         {
             PlaceFinalPieceAutomatically();
 
-            Debug.Log("--- Puzzle Completed! ---");
-
             PuzzleCompleted();
         }
         else if (pieces1To5Correct && !hasMissingPiece)
@@ -98,6 +96,21 @@ public class JigsawPuzzleManager : MonoBehaviour
 
     private void PuzzleCompleted()
     {
+        Debug.Log("Puzzle Completed");
+
         // ได้สายโคมไฟ
+
+        for (int i = 0; i < 5; i++)
+        {
+            if (slots[i].placedPiece != null)
+            {
+                slots[i].placedPiece.LockPiece(slots[i].transform);
+            }
+        }
+
+        if (slots[5].placedPiece != null)
+        {
+            slots[5].placedPiece.LockPiece(slots[5].transform);
+        }
     }
 }

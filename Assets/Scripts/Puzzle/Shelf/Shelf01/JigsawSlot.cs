@@ -24,9 +24,8 @@ public class JigsawSlot : MonoBehaviour
 
     public void OnPiecePlaced(JigsawPiece piece, Sprite pieceSprite)
     {
-        if (placedPiece != null && placedPiece != piece)
+        if (placedPiece != null)
         {
-            placedPiece.UnlockPiece();
             placedPiece.ReturnToOriginalPosition();
         }
 
@@ -34,14 +33,12 @@ public class JigsawSlot : MonoBehaviour
         currentPieceID = piece.pieceID;
         SetPiece(piece.pieceID, pieceSprite);
 
-        if (piece.pieceID == correctPieceID)
+        var img = piece.GetComponent<Image>();
+        if (img != null)
         {
-            piece.LockPiece(this.transform);
-        }
-        else
-        {
-            piece.UnlockPiece();
-
+            var color = img.color;
+            color.a = 0f;
+            img.color = color;
         }
 
         UnityEngine.Object.FindAnyObjectByType<JigsawPuzzleManager>().CheckCompletion();
@@ -51,7 +48,13 @@ public class JigsawSlot : MonoBehaviour
     {
         if (placedPiece != null)
         {
-            placedPiece.UnlockPiece();
+            var img = placedPiece.GetComponent<Image>();
+            if (img != null)
+            {
+                var color = img.color;
+                color.a = 1f;
+                img.color = color;
+            }
         }
 
         placedPiece = null;
@@ -59,7 +62,6 @@ public class JigsawSlot : MonoBehaviour
 
         if (slotImage != null)
         {
-            slotImage.sprite = null;
             slotImage.color = new Color(1, 1, 1, 0);
         }
     }
