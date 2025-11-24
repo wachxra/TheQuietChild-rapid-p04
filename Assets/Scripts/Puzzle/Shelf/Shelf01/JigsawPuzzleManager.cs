@@ -47,16 +47,13 @@ public class JigsawPuzzleManager : MonoBehaviour
 
     public void CollectMissingPiece()
     {
-        if (!hasMissingPiece)
+        hasMissingPiece = true;
+        if (missingPieceObject != null)
         {
-            hasMissingPiece = true;
-            if (missingPieceObject != null)
-            {
-                Destroy(missingPieceObject);
-            }
-            Debug.Log("Collected the missing piece (ID 6)!");
-            CheckCompletion();
+            Destroy(missingPieceObject);
         }
+        Debug.Log("Collected the missing piece (ID 6)!");
+        CheckCompletion();
     }
 
     public void CheckCompletion()
@@ -98,8 +95,6 @@ public class JigsawPuzzleManager : MonoBehaviour
     {
         Debug.Log("Puzzle Completed");
 
-        // ได้สายโคมไฟ
-
         for (int i = 0; i < 5; i++)
         {
             if (slots[i].placedPiece != null)
@@ -111,6 +106,13 @@ public class JigsawPuzzleManager : MonoBehaviour
         if (slots[5].placedPiece != null)
         {
             slots[5].placedPiece.LockPiece(slots[5].transform);
+        }
+
+        LampPuzzle lampPuzzle = Object.FindFirstObjectByType<LampPuzzle>();
+
+        if (lampPuzzle != null)
+        {
+            lampPuzzle.ReceiveLampPart(1);
         }
     }
 }
