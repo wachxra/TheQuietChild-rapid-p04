@@ -7,10 +7,10 @@ public class RainPuzzleFlow : MonoBehaviour
     public Button startButton;
     public GameObject gameObjectA;
 
-    [Header("Glass Button in A")]
+    [Header("Glass Button")]
     public Button glassButton;
 
-    [Header("Mirror Button in A")]
+    [Header("Mirror Button")]
     public Button mirrorButton;
     public Sprite mirrorRainSprite;
 
