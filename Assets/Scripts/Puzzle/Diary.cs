@@ -23,12 +23,12 @@ public class Diary : MonoBehaviour
     private int currentPage = 0;
     private int nextPreparedIndex = 0;
 
-    private MultiStageManager multiStageManager;
+    /*private MultiStageManager multiStageManager;
 
     private void Awake()
     {
         multiStageManager = Object.FindFirstObjectByType<MultiStageManager>();
-    }
+    }*/
 
     void Start()
     {
@@ -71,7 +71,7 @@ public class Diary : MonoBehaviour
             AddNewPage(preparedPages[nextPreparedIndex]);
             nextPreparedIndex++;
 
-            multiStageManager.AdvanceStage();
+            /*multiStageManager.AdvanceStage();*/
         }
         else
         {
