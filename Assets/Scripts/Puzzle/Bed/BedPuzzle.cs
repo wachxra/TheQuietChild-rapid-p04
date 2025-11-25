@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BedPuzzle : MonoBehaviour
 {
@@ -7,7 +8,28 @@ public class BedPuzzle : MonoBehaviour
     public Interactable targetInteractable;
     public GameObject newPanel;
 
+    [Header("Note Button Reference")]
+    public Button noteButton;
+    public GameObject objectToDestroy;
+
+    [Header("Diary Reference")]
+    public Diary diary;
+
     private bool redirected = false;
+
+    private void Start()
+    {
+        if (noteButton != null && objectToDestroy != null)
+        {
+            noteButton.onClick.AddListener(() =>
+            {
+                Destroy(objectToDestroy);
+
+                if (diary != null)
+                    diary.AddNextPreparedPage();
+            });
+        }
+    }
 
     private void Update()
     {
