@@ -6,7 +6,8 @@ using UnityEngine.SceneManagement;
 public enum InteractType
 {
     ShowText,
-    OpenPanel
+    OpenPanel,
+    PhaseFinalObject
 }
 
 public class Interactable : MonoBehaviour
@@ -36,6 +37,10 @@ public class Interactable : MonoBehaviour
     public bool playOnlyOnce = true;
     private bool listPlayed = false;
 
+    [Header("Phase Manager Reference (Optional for PhaseFinalObject)")]
+    public PhaseManager phaseManager;
+    public GameObject targetObjectToDestroy;
+
     private bool isPlayingText = false;
     private int currentTextIndex = 0;
 
@@ -61,9 +66,7 @@ public class Interactable : MonoBehaviour
         {
             panelCanvasGroup = activePanel.GetComponent<CanvasGroup>();
             if (panelCanvasGroup == null)
-            {
                 panelCanvasGroup = activePanel.AddComponent<CanvasGroup>();
-            }
         }
 
         if (textBackground != null)
@@ -75,9 +78,7 @@ public class Interactable : MonoBehaviour
         if (isPlayingText)
         {
             if (!waitForNextKey)
-            {
                 waitForNextKey = true;
-            }
             else
             {
                 if (Input.anyKeyDown &&
@@ -90,16 +91,12 @@ public class Interactable : MonoBehaviour
             }
 
             if (panelCanvasGroup != null)
-            {
                 panelCanvasGroup.blocksRaycasts = false;
-            }
         }
         else
         {
             if (panelCanvasGroup != null)
-            {
                 panelCanvasGroup.blocksRaycasts = true;
-            }
         }
 
         if (!switchingEnabled) return;
@@ -132,9 +129,7 @@ public class Interactable : MonoBehaviour
     private void EndText()
     {
         isPlayingText = false;
-
         Interactable.IsAnyTextPlaying = false;
-
         waitForNextKey = false;
 
         if (sharedTextUI != null)
@@ -148,6 +143,14 @@ public class Interactable : MonoBehaviour
 
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+
+        if (interactType == InteractType.PhaseFinalObject && phaseManager != null && phaseManager.CurrentPhaseIsLast())
+        {
+            if (targetObjectToDestroy != null)
+            {
+                Destroy(targetObjectToDestroy);
+            }
+        }
     }
 
     private void ShowCurrentText()
@@ -310,6 +313,10 @@ public class Interactable : MonoBehaviour
 
                     PlayTextList(false);
                 }
+                break;
+
+            case InteractType.PhaseFinalObject:
+                PlayTextList(false);
                 break;
         }
     }

@@ -63,6 +63,10 @@ public class Diary : MonoBehaviour
         {
             AddNewPage(preparedPages[nextPreparedIndex]);
             nextPreparedIndex++;
+
+            PhaseManager phaseManager = Object.FindFirstObjectByType<PhaseManager>();
+            if (phaseManager != null)
+                phaseManager.UpdatePhase();
         }
         else
         {
