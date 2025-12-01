@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
@@ -29,6 +29,12 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        if (Interactable.IsAnyTextPlaying)
+        {
+            movement = Vector2.zero;
+            return;
+        }
+
         if (UIManager.Instance != null && UIManager.Instance.IsUIOpen)
         {
             movement = Vector2.zero;

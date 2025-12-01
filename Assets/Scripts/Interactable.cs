@@ -44,6 +44,8 @@ public class Interactable : MonoBehaviour
     private bool waitForNextKey = false;
     private CanvasGroup panelCanvasGroup;
 
+    public static bool IsAnyTextPlaying = false;
+
     void Start()
     {
         if (upButton != null) upButton.onClick.AddListener(SwitchUpUI);
@@ -114,6 +116,9 @@ public class Interactable : MonoBehaviour
 
         listPlayed = true;
         isPlayingText = true;
+
+        Interactable.IsAnyTextPlaying = true;
+
         currentTextIndex = 0;
         waitForNextKey = false;
 
@@ -126,6 +131,8 @@ public class Interactable : MonoBehaviour
     private void EndText()
     {
         isPlayingText = false;
+
+        Interactable.IsAnyTextPlaying = false;
 
         waitForNextKey = false;
 
@@ -248,10 +255,13 @@ public class Interactable : MonoBehaviour
                 if (panelToOpen != null && panelToOpen.CompareTag("DoorPanel"))
                 {
                     Diary diary = Object.FindFirstObjectByType<Diary>();
-                    if (diary != null && !diary.IsAllPreparedPagesCollected())
+                    if (diary != null)
                     {
-                        Debug.Log("Cannot open door yet! Collect all pages first");
-                        return;
+                        if (!diary.IsAllPreparedPagesCollected())
+                        {
+                            PlayTextList(false);
+                            return;
+                        }
                     }
                 }
 
