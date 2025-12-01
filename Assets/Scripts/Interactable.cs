@@ -25,6 +25,14 @@ public class Interactable : MonoBehaviour
     public Button downButton;
     public Button backButton;
 
+    private int currentIndex = 0;
+    private bool switchingEnabled = false;
+
+    [Header("Dialogue")]
+    public GameObject textBackground;
+    public TextMeshProUGUI textUI;
+    public static TextMeshProUGUI sharedTextUI;
+
     [Header("Text List System")]
     public string[] textList;
     public bool playOnlyOnce = true;
@@ -32,14 +40,6 @@ public class Interactable : MonoBehaviour
 
     private bool isPlayingText = false;
     private int currentTextIndex = 0;
-
-    public static TextMeshProUGUI sharedTextUI;
-    public TextMeshProUGUI textUI;
-
-    private Button[] cachedButtons;
-
-    private int currentIndex = 0;
-    private bool switchingEnabled = false;
 
     private bool waitForNextKey = false;
     private CanvasGroup panelCanvasGroup;
@@ -62,6 +62,9 @@ public class Interactable : MonoBehaviour
                 panelCanvasGroup = activePanel.AddComponent<CanvasGroup>();
             }
         }
+
+        if (textBackground != null)
+            textBackground.SetActive(false);
     }
 
     void Update()
@@ -74,16 +77,13 @@ public class Interactable : MonoBehaviour
             }
             else
             {
-                if (Input.anyKeyDown && !Input.GetMouseButtonDown(0) && !Input.GetMouseButtonDown(1) && !Input.GetMouseButtonDown(2))
+                if (Input.anyKeyDown &&
+                    !Input.GetMouseButtonDown(0) &&
+                    !Input.GetMouseButtonDown(1) &&
+                    !Input.GetMouseButtonDown(2))
                 {
                     ContinueText();
                 }
-            }
-
-            if (cachedButtons != null)
-            {
-                foreach (var b in cachedButtons)
-                    b.interactable = false;
             }
 
             if (panelCanvasGroup != null)
@@ -132,6 +132,9 @@ public class Interactable : MonoBehaviour
         if (sharedTextUI != null)
             sharedTextUI.gameObject.SetActive(false);
 
+        if (textBackground != null)
+            textBackground.SetActive(false);
+
         if (panelCanvasGroup != null)
             panelCanvasGroup.blocksRaycasts = true;
 
@@ -142,6 +145,9 @@ public class Interactable : MonoBehaviour
     private void ShowCurrentText()
     {
         if (sharedTextUI == null) return;
+
+        if (textBackground != null)
+            textBackground.SetActive(true);
 
         sharedTextUI.gameObject.SetActive(true);
         sharedTextUI.text = textList[currentTextIndex];
