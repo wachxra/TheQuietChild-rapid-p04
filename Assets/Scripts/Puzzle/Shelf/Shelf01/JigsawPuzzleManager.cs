@@ -16,6 +16,7 @@ public class JigsawPuzzleManager : MonoBehaviour
     public Sprite finalPieceSprite;
 
     private bool hasMissingPiece = false;
+    private bool wasPanelActive = false;
 
     void Start()
     {
@@ -32,17 +33,71 @@ public class JigsawPuzzleManager : MonoBehaviour
         }
     }
 
+    void Update()
+    {
+        bool isActive = puzzlePanel.activeSelf;
+
+        if (isActive != wasPanelActive)
+        {
+            if (isActive) OpenPuzzle();
+            else ClosePuzzle();
+
+            wasPanelActive = isActive;
+        }
+    }
 
     public void OpenPuzzle()
     {
         puzzlePanel.SetActive(true);
+
+        JigsawPiece[] allPieces = puzzlePanel.GetComponentsInChildren<JigsawPiece>(true);
+        foreach (var piece in allPieces)
+        {
+            var cg = piece.GetComponent<CanvasGroup>();
+            if (cg != null) cg.blocksRaycasts = true;
+        }
 
         CheckCompletion();
     }
 
     public void ClosePuzzle()
     {
+        ResetPuzzlePieces();
+
         puzzlePanel.SetActive(false);
+
+        foreach (var slot in slots)
+        {
+            if (slot.placedPiece != null)
+            {
+                var piece = slot.placedPiece;
+                var cg = piece.GetComponent<CanvasGroup>();
+                if (cg != null) cg.blocksRaycasts = false;
+            }
+        }
+
+        JigsawPiece[] allPieces = puzzlePanel.GetComponentsInChildren<JigsawPiece>(true);
+        foreach (var piece in allPieces)
+        {
+            var cg = piece.GetComponent<CanvasGroup>();
+            if (cg != null) cg.blocksRaycasts = false;
+        }
+    }
+
+    private void ResetPuzzlePieces()
+    {
+        bool pieces1To5Correct = CheckPieces1To5();
+        if (!(pieces1To5Correct && hasMissingPiece))
+        {
+            foreach (var slot in slots)
+            {
+                if (slot.placedPiece != null)
+                {
+                    slot.placedPiece.ReturnToOriginalPosition();
+                    slot.ClearSlot();
+                }
+            }
+        }
     }
 
     public void CollectMissingPiece()

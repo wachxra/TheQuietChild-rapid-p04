@@ -13,7 +13,7 @@ public class JigsawPiece : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
     private Transform originalParent;
     private Transform canvasRoot;
 
-    private JigsawSlot currentSlot = null;
+    public JigsawSlot currentSlot = null;
     private bool isLocked = false;
 
     public bool IsLocked => isLocked;

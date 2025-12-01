@@ -152,9 +152,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1813028360}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1170, y: -50}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 400, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &41119209
@@ -2417,6 +2417,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::JigsawPiece
   pieceID: 1
+  currentSlot: {fileID: 0}
 --- !u!114 &311870547
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3981,9 +3982,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1813028360}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 690, y: -50}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -80, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &540814922
@@ -4658,9 +4659,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1813028360}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 210, y: -50}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -560, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &635444155
@@ -7022,6 +7023,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::JigsawPiece
   pieceID: 5
+  currentSlot: {fileID: 0}
 --- !u!114 &911981833
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7266,9 +7268,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1813028360}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 370, y: -50}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -400, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &930697937
@@ -7434,9 +7436,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1813028360}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 530, y: -50}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -240, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &960062463
@@ -8200,9 +8202,9 @@ MonoBehaviour:
   - {fileID: 451158542}
   - {fileID: 2066020580}
   - {fileID: 1558771904}
-  upButton: {fileID: 0}
-  downButton: {fileID: 0}
-  backButton: {fileID: 0}
+  upButton: {fileID: 176841045}
+  downButton: {fileID: 801876208}
+  backButton: {fileID: 1766973204}
 --- !u!4 &1111027231
 Transform:
   m_ObjectHideFlags: 0
@@ -8251,9 +8253,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1813028360}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1010, y: -50}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 240, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1112117487
@@ -9781,6 +9783,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::JigsawPiece
   pieceID: 3
+  currentSlot: {fileID: 0}
 --- !u!114 &1341258125
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10250,7 +10253,7 @@ MonoBehaviour:
   upButton: {fileID: 0}
   downButton: {fileID: 0}
   backButton: {fileID: 1766973204}
-  textBackground: {fileID: 0}
+  textBackground: {fileID: 1630582286}
   textUI: {fileID: 778920001}
   textList:
   - Hello
@@ -12766,7 +12769,7 @@ MonoBehaviour:
   objectToDestroy: {fileID: 1871073620}
   correctPassword: 0312
   diary: {fileID: 578197290}
-  backButton: {fileID: 0}
+  backButton: {fileID: 1766973204}
 --- !u!4 &1696938126
 Transform:
   m_ObjectHideFlags: 0
@@ -13569,7 +13572,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.ContentSizeFitter
   m_HorizontalFit: 2
-  m_VerticalFit: 0
+  m_VerticalFit: 2
 --- !u!114 &1813028362
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13587,7 +13590,7 @@ MonoBehaviour:
     m_Right: 0
     m_Top: 0
     m_Bottom: 0
-  m_ChildAlignment: 0
+  m_ChildAlignment: 4
   m_Spacing: 60
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
@@ -14543,9 +14546,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1813028360}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1330, y: -50}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 560, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1962278913
@@ -15295,6 +15298,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::JigsawPiece
   pieceID: 2
+  currentSlot: {fileID: 0}
 --- !u!114 &2035213813
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15548,6 +15552,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::JigsawPiece
   pieceID: 4
+  currentSlot: {fileID: 0}
 --- !u!114 &2069314845
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15823,9 +15828,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1813028360}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 850, y: -50}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 80, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2079145167
@@ -15914,9 +15919,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1813028360}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1490, y: -50}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 720, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2121359992
@@ -16127,19 +16132,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2715389512514435852, guid: 093eb31021e2a8b4993e11a348f6ef43, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2715389512514435852, guid: 093eb31021e2a8b4993e11a348f6ef43, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2715389512514435852, guid: 093eb31021e2a8b4993e11a348f6ef43, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2715389512514435852, guid: 093eb31021e2a8b4993e11a348f6ef43, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2715389512514435852, guid: 093eb31021e2a8b4993e11a348f6ef43, type: 3}
       propertyPath: m_SizeDelta.x
@@ -16183,11 +16188,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2715389512514435852, guid: 093eb31021e2a8b4993e11a348f6ef43, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 50
+      value: -720
       objectReference: {fileID: 0}
     - target: {fileID: 2715389512514435852, guid: 093eb31021e2a8b4993e11a348f6ef43, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -50
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2715389512514435852, guid: 093eb31021e2a8b4993e11a348f6ef43, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
