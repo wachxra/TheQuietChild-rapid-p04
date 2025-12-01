@@ -12,6 +12,10 @@ public class LampPuzzle : MonoBehaviour
     public Image panelToChangeColor;
     public Color collectedColor = Color.yellow;
 
+    [Header("Change Sprite After All Collected")]
+    public GameObject targetObjectToChangeSprite;
+    public Sprite newSpriteAfterCollectedAllParts;
+
     public static bool hasLampPart1 = false;
     public static bool hasLampPart2 = false;
     public static bool hasLampPart3 = false;
@@ -35,6 +39,7 @@ public class LampPuzzle : MonoBehaviour
                     Debug.Log("Lamp Part 1 collected!");
                 }
                 break;
+
             case 2:
                 if (!hasLampPart2)
                 {
@@ -43,6 +48,7 @@ public class LampPuzzle : MonoBehaviour
                     Debug.Log("Lamp Part 2 collected!");
                 }
                 break;
+
             case 3:
                 if (!hasLampPart3)
                 {
@@ -64,6 +70,17 @@ public class LampPuzzle : MonoBehaviour
             {
                 panelToChangeColor.color = collectedColor;
                 Debug.Log("All parts collected! Panel color changed.");
+            }
+
+            if (targetObjectToChangeSprite != null && newSpriteAfterCollectedAllParts != null)
+            {
+                var img = targetObjectToChangeSprite.GetComponent<Image>();
+                if (img != null)
+                    img.sprite = newSpriteAfterCollectedAllParts;
+
+                var sr = targetObjectToChangeSprite.GetComponent<SpriteRenderer>();
+                if (sr != null)
+                    sr.sprite = newSpriteAfterCollectedAllParts;
             }
         }
     }
