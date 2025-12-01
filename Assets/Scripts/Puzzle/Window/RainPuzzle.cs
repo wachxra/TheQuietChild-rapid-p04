@@ -24,6 +24,10 @@ public class RainPuzzleFlow : MonoBehaviour
 
     private Image mirrorButtonImage;
 
+    [Header("Glass Pickup Sprite Change")]
+    public GameObject targetObjectToChangeSprite;
+    public Sprite newSpriteAfterPickupGlass;
+
     private void Awake()
     {
         if (startButton != null)
@@ -88,6 +92,17 @@ public class RainPuzzleFlow : MonoBehaviour
             Destroy(glassButton.gameObject);
 
         Debug.Log("Glass picked up! hasGlass = " + hasGlass);
+
+        if (targetObjectToChangeSprite != null && newSpriteAfterPickupGlass != null)
+        {
+            var img = targetObjectToChangeSprite.GetComponent<Image>();
+            if (img != null)
+                img.sprite = newSpriteAfterPickupGlass;
+
+            var sr = targetObjectToChangeSprite.GetComponent<SpriteRenderer>();
+            if (sr != null)
+                sr.sprite = newSpriteAfterPickupGlass;
+        }
     }
 
     private void PickupRainWater()
