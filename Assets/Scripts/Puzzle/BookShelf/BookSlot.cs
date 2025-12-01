@@ -9,7 +9,9 @@ public class BookSlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
 
     private RectTransform rectTransform;
     private Canvas canvas;
-    private Transform originalParent;
+
+    private GameObject placeholder;
+    private Transform parentBeforeDrag;
 
     void Awake()
     {
@@ -17,11 +19,30 @@ public class BookSlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
         canvas = GetComponentInParent<Canvas>();
     }
 
+    void Update()
+    {
+        if (placeholder != null)
+        {
+            placeholder.transform.localPosition = Vector3.Lerp(
+                placeholder.transform.localPosition,
+                parentBeforeDrag.GetChild(placeholder.transform.GetSiblingIndex()).localPosition,
+                Time.deltaTime * 15f
+            );
+        }
+    }
+
     public void OnBeginDrag(PointerEventData eventData)
     {
         if (!canDrag) return;
 
-        originalParent = transform.parent;
+        parentBeforeDrag = transform.parent;
+
+        placeholder = new GameObject("Placeholder");
+        var rt = placeholder.AddComponent<RectTransform>();
+        rt.sizeDelta = rectTransform.sizeDelta;
+        placeholder.transform.SetParent(parentBeforeDrag);
+        placeholder.transform.SetSiblingIndex(transform.GetSiblingIndex());
+
         transform.SetParent(canvas.transform);
     }
 
@@ -30,31 +51,41 @@ public class BookSlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
         if (!canDrag) return;
 
         rectTransform.anchoredPosition += eventData.delta / canvas.scaleFactor;
+
+        float draggedX = rectTransform.position.x;
+
+        int newIndex = parentBeforeDrag.childCount - 1;
+
+        for (int i = 0; i < parentBeforeDrag.childCount; i++)
+        {
+            var child = parentBeforeDrag.GetChild(i);
+            if (child == placeholder.transform) continue;
+
+            float childCenterX = child.position.x;
+
+            if (draggedX < childCenterX)
+            {
+                newIndex = i;
+                break;
+            }
+        }
+
+        placeholder.transform.SetSiblingIndex(newIndex);
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
         if (!canDrag || manager == null) return;
 
-        int closestIndex = 0;
-        float closestDistance = float.MaxValue;
+        int targetIndex = placeholder.transform.GetSiblingIndex();
 
-        for (int i = 0; i < manager.bookSlots.Count; i++)
-        {
-            var slot = manager.bookSlots[i];
-            if (!slot.gameObject.activeSelf) continue;
+        transform.SetParent(parentBeforeDrag);
+        transform.SetSiblingIndex(targetIndex);
 
-            float distance = Vector3.Distance(rectTransform.position, slot.transform.position);
-            if (distance < closestDistance)
-            {
-                closestDistance = distance;
-                closestIndex = slot.transform.GetSiblingIndex();
-            }
-        }
+        manager.SwapBooks(this, targetIndex);
 
-        manager.SwapBooks(this, closestIndex);
+        Destroy(placeholder);
 
-        transform.SetParent(originalParent);
         rectTransform.anchoredPosition = Vector2.zero;
     }
 }

@@ -6,11 +6,13 @@ public class MainMenu : MonoBehaviour
 {
     public void StartGame(string sceneName)
     {
-        Debug.Log("Loading scene: " + sceneName);
+        string introSceneName = "Intro";
 
-        if (!string.IsNullOrEmpty(sceneName))
+        Debug.Log("Loading scene: " + introSceneName);
+
+        if (!string.IsNullOrEmpty(introSceneName))
         {
-            SceneManager.LoadScene(sceneName);
+            SceneManager.LoadScene(introSceneName);
         }
     }
 
@@ -19,7 +21,7 @@ public class MainMenu : MonoBehaviour
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
 #else
-    Application.Quit();
+        Application.Quit();
 #endif
     }
 

@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public enum InteractType
 {
@@ -25,9 +26,6 @@ public class Interactable : MonoBehaviour
     public Button downButton;
     public Button backButton;
 
-    private int currentIndex = 0;
-    private bool switchingEnabled = false;
-
     [Header("Dialogue")]
     public GameObject textBackground;
     public TextMeshProUGUI textUI;
@@ -40,6 +38,9 @@ public class Interactable : MonoBehaviour
 
     private bool isPlayingText = false;
     private int currentTextIndex = 0;
+
+    private int currentIndex = 0;
+    private bool switchingEnabled = false;
 
     private bool waitForNextKey = false;
     private CanvasGroup panelCanvasGroup;
@@ -245,6 +246,11 @@ public class Interactable : MonoBehaviour
 
     public void Interact()
     {
+        if (IsAnyTextPlaying)
+        {
+            return;
+        }
+
         switch (interactType)
         {
             case InteractType.ShowText:
@@ -260,6 +266,11 @@ public class Interactable : MonoBehaviour
                         if (!diary.IsAllPreparedPagesCollected())
                         {
                             PlayTextList(false);
+                            return;
+                        }
+                        else
+                        {
+                            SceneManager.LoadScene("OutroScene");
                             return;
                         }
                     }
