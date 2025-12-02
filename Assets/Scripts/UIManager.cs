@@ -76,13 +76,4 @@ public class UIManager : MonoBehaviour
             currentPuzzlePanel = null;
         }
     }
-
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            CloseDialogue();
-            ClosePuzzlePanel();
-        }
-    }
 }

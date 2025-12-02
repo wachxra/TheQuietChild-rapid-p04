@@ -146,7 +146,12 @@ public class Interactable : MonoBehaviour
         TextGroupElement group = textGroups[currentGroupIndex];
 
         if (group.playOnlyOnce && group.hasPlayed && !ignorePlayOnce)
-            return;
+        {
+            if (interactType == InteractType.PhaseFinalObject)
+                group.hasPlayed = false;
+            else
+                return;
+        }
 
         group.hasPlayed = true;
         isPlayingText = true;
@@ -256,10 +261,13 @@ public class Interactable : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
 
+        // --- สำหรับ PhaseFinalObject ---
         if (interactType == InteractType.PhaseFinalObject && phaseManager != null && phaseManager.CurrentPhaseIsLast())
         {
             if (targetObjectToDestroy != null)
+            {
                 Destroy(targetObjectToDestroy);
+            }
         }
     }
 
@@ -368,16 +376,24 @@ public class Interactable : MonoBehaviour
         {
             if (textGroups != null && textGroups.Length > 0)
             {
-                PlayTextGroup(false, 0);
-            }
-
-            if (phaseManager != null && phaseManager.CurrentPhaseIsLast())
-            {
-                if (targetObjectToDestroy != null)
-                    Destroy(targetObjectToDestroy);
+                PlayTextGroup(ignorePlayOnce: true, groupIndex: 0);
             }
 
             return;
+        }
+
+        if (gameObject.CompareTag("Door"))
+        {
+            Diary diary = Object.FindFirstObjectByType<Diary>();
+            if (diary != null && diary.IsAllPreparedPagesCollected())
+            {
+                SceneManager.LoadScene("Outro");
+                return;
+            }
+            else
+            {
+                return;
+            }
         }
 
         if (switchablePanels != null && switchablePanels.Length > 0)
