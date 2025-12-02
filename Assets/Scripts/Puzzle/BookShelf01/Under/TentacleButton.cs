@@ -25,6 +25,9 @@ public class TentacleButton : MonoBehaviour
     {
         if (manager != null)
         {
+            if (AudioManager.Instance != null)
+                AudioManager.Instance.PlaySFX("Click");
+
             if (button.image != null)
                 button.image.enabled = false;
 

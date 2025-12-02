@@ -9,6 +9,8 @@ public class SquidTentaclePuzzleManager : MonoBehaviour
     public Diary diary;
     private List<int> playerInputs = new List<int>();
 
+    private bool isPuzzleCompleted = false;
+
     public void OnButtonPressed(int buttonID)
     {
         if (playerInputs.Count >= correctSequence.Count) return;
@@ -36,6 +38,7 @@ public class SquidTentaclePuzzleManager : MonoBehaviour
         if (isCorrect)
         {
             Debug.Log("Puzzle Completed");
+            isPuzzleCompleted = true;
             FreezeCurrentSequence();
 
             LampPuzzle lampPuzzle = Object.FindFirstObjectByType<LampPuzzle>();
@@ -69,5 +72,16 @@ public class SquidTentaclePuzzleManager : MonoBehaviour
         {
             btn.ResetButton();
         }
+    }
+
+    public void ResetTentaclePuzzle()
+    {
+        if (isPuzzleCompleted)
+        {
+            return;
+        }
+
+        ResetCurrentRound();
+        playerInputs.Clear();
     }
 }
