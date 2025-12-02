@@ -1,10 +1,16 @@
 fileFormatVersion: 2
-guid: f94c6e54c17bb4f40834ab5d51056ef9
+guid: e46deb045cc4b7a489eb7b8f41686a8b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6624787391694073793
-    second: plant_growth1_0
+      213: 2434332049200472872
+    second: closet_DogPaw_0
+  - first:
+      213: 1238558343054551138
+    second: closet_DogPaw_1
+  - first:
+      213: -2405113453532589886
+    second: closet_DogPaw_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +52,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -97,7 +103,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
-    buildTarget: Android
+    buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -113,13 +119,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: plant_growth1_0
+      name: closet_DogPaw_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 401
-        height: 498
+        y: 109
+        width: 55
+        height: 65
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +134,52 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1cf696a7809ffeb50800000000000000
-      internalID: 6624787391694073793
+      spriteID: 82361f1e91c78c120800000000000000
+      internalID: 2434332049200472872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: closet_DogPaw_1
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 0
+        width: 155
+        height: 195
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 268ec57304e303110800000000000000
+      internalID: 1238558343054551138
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: closet_DogPaw_2
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 104
+        width: 52
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c05dad8e025f9ed0800000000000000
+      internalID: -2405113453532589886
       vertices: []
       indices: 
       edges: []
@@ -138,7 +188,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +198,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      plant_growth1_0: 6624787391694073793
+      closet_DogPaw_0: 2434332049200472872
+      closet_DogPaw_1: 1238558343054551138
+      closet_DogPaw_2: -2405113453532589886
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

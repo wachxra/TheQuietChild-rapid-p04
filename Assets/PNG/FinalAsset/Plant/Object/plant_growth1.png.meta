@@ -1,13 +1,10 @@
 fileFormatVersion: 2
-guid: d4140a3951fa25d488f5e9d1cf30891a
+guid: a38f211e0ce996144b6829185a78173b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2088686045919795308
-    second: closet_DogPuzBox_0
-  - first:
-      213: -4691345086732487264
-    second: closet_DogPuzBox_1
+      213: 6624787391694073793
+    second: plant_growth1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -49,13 +46,13 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
-  alignment: 9
-  spritePivot: {x: 0.48756444, y: 0.49068263}
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
-  spriteBorder: {x: 0, y: 0, z: 267, w: 0}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -100,7 +97,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
-    buildTarget: Android
+    buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -116,45 +113,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: closet_DogPuzBox_0
+      name: plant_growth1_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1393
-        height: 1340
+        width: 386
+        height: 487
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c685d5674e08cfc10800000000000000
-      internalID: 2088686045919795308
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: closet_DogPuzBox_1
-      rect:
-        serializedVersion: 2
-        x: 1999
-        y: 1230
-        width: 9
-        height: 38
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 0a5398adf7ef4eeb0800000000000000
-      internalID: -4691345086732487264
+      spriteID: 1cf696a7809ffeb50800000000000000
+      internalID: 6624787391694073793
       vertices: []
       indices: 
       edges: []
@@ -163,8 +138,8 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 8f5a352857c4dd749935a883e9de42ba
-    internalID: -477828530
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
     vertices: []
     indices: 
     edges: []
@@ -173,8 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      closet_DogPuzBox_0: 2088686045919795308
-      closet_DogPuzBox_1: -4691345086732487264
+      plant_growth1_0: 6624787391694073793
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

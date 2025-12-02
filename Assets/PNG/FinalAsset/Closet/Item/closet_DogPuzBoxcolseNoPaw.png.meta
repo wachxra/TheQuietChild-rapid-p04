@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 38f20b078dfb0b344954e27e51d89654
+guid: 9762cfff9cfcbb34dbd7505ca1605336
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8539798027181271075
-    second: bookShelfUP_0
+      213: -6531237591597413161
+    second: closet_DogPuzBoxcolseNoPaw_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -97,19 +97,6 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
     buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -126,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: bookShelfUP_0
+      name: closet_DogPuzBoxcolseNoPaw_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 3425
-        height: 1925
+        width: 2316
+        height: 1429
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: dd75748a0fa8c7980800000000000000
-      internalID: -8539798027181271075
+      spriteID: 7dc8821b3026c55a0800000000000000
+      internalID: -6531237591597413161
       vertices: []
       indices: 
       edges: []
@@ -161,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      bookShelfUP_0: -8539798027181271075
+      closet_DogPuzBoxcolseNoPaw_0: -6531237591597413161
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
