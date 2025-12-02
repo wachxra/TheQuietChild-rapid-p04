@@ -35,7 +35,7 @@ public class Diary : MonoBehaviour
 
         if (backButton != null)
         {
-            backButton.onClick.AddListener(CloseAllPanels);
+            backButton.onClick.AddListener(ClosePanel);
             backButton.gameObject.SetActive(false);
         }
 
@@ -54,13 +54,6 @@ public class Diary : MonoBehaviour
         if (backButton != null)
             backButton.gameObject.SetActive(true);
         UpdateNotebookUI();
-    }
-
-    public void CloseNotebook()
-    {
-        notebookPanel.SetActive(false);
-        if (backButton != null)
-            backButton.gameObject.SetActive(false);
     }
 
     public void AddNewPage(string newText)
@@ -127,14 +120,9 @@ public class Diary : MonoBehaviour
         return nextPreparedIndex >= preparedPages.Count;
     }
 
-    private void CloseAllPanels()
+    private void ClosePanel()
     {
-        if (notebookPanel != null && notebookPanel.activeSelf)
-            notebookPanel.SetActive(false);
-
-        if (backButton != null)
-            backButton.gameObject.SetActive(false);
-
-        Debug.Log("Diary panel closed via Back Button.");
+        notebookPanel.SetActive(false);
+        backButton.gameObject.SetActive(false);
     }
 }

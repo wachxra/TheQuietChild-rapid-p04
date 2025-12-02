@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class BedPuzzle : MonoBehaviour
@@ -37,9 +37,13 @@ public class BedPuzzle : MonoBehaviour
         {
             if (LampPuzzle.hasLampPart1 && LampPuzzle.hasLampPart2 && LampPuzzle.hasLampPart3)
             {
-                targetInteractable.panelToOpen = newPanel;
                 redirected = true;
-                Debug.Log("Lamp Puzzle complete: Interactable now opens Panel B instead of Panel A");
+
+                targetInteractable.switchablePanels = new GameObject[] { newPanel };
+                targetInteractable.textGroups = new TextGroupElement[0];
+                targetInteractable.panelToOpen = newPanel;
+
+                Debug.Log("BedPuzzle: Redirected to Panel B with no text group.");
             }
         }
     }

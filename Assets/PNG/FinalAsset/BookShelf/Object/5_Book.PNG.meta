@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 67dcc711f819abd41bfaef1974921e90
+guid: 2088b9a62e017a547aec0f999037f26f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5088316998373936774
-    second: 0_0
+      213: -3279997668399198411
+    second: 5_Book_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -97,19 +97,6 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
     buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -126,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 0_0
+      name: 5_Book_0
       rect:
         serializedVersion: 2
-        x: 281
-        y: 82
-        width: 697
-        height: 2832
+        x: 164
+        y: 39
+        width: 972
+        height: 3737
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 68e09a8d9555d9640800000000000000
-      internalID: 5088316998373936774
+      spriteID: 53fc4feaf7b1b72d0800000000000000
+      internalID: -3279997668399198411
       vertices: []
       indices: 
       edges: []
@@ -161,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      0_0: 5088316998373936774
+      5_Book_0: -3279997668399198411
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

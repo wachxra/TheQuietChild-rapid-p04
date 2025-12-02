@@ -65,7 +65,7 @@ public class Interactable : MonoBehaviour
 
     private bool isPlayingText = false;
     private int currentTextIndex = 0;
-    private int currentPanelIndex = 0;
+    public int currentPanelIndex = 0;
     private int currentGroupIndex = 0;
     private bool switchingEnabled = false;
     private bool waitForNextKey = false;
@@ -363,6 +363,22 @@ public class Interactable : MonoBehaviour
     {
         if (IsAnyTextPlaying)
             return;
+
+        if (interactType == InteractType.PhaseFinalObject)
+        {
+            if (textGroups != null && textGroups.Length > 0)
+            {
+                PlayTextGroup(false, 0);
+            }
+
+            if (phaseManager != null && phaseManager.CurrentPhaseIsLast())
+            {
+                if (targetObjectToDestroy != null)
+                    Destroy(targetObjectToDestroy);
+            }
+
+            return;
+        }
 
         if (switchablePanels != null && switchablePanels.Length > 0)
         {

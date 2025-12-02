@@ -15,6 +15,8 @@ public class PlantKeyPuzzle : MonoBehaviour
 
     private void Awake()
     {
+        hasKey = false;
+
         if (waterButton != null)
             waterButton.onClick.AddListener(WaterTree);
 

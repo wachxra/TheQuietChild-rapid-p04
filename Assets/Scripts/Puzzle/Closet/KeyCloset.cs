@@ -70,8 +70,10 @@ public class KeyCloset : MonoBehaviour
 
     private void OpenSwitchPanels()
     {
-        if (gameObjectB != null)
-            gameObjectB.SetActive(false);
+        if (!PlantKeyPuzzle.hasKey)
+        {
+            return;
+        }
 
         if (switchablePanels != null && switchablePanels.Length > 0)
         {
