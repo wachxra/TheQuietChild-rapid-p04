@@ -4682,6 +4682,10 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 98e0db66b10845440a11ffbdfe6848f5, type: 3}
     volume: 0.5
     pitch: 1
+  - keyId: Raining
+    clip: {fileID: 8300000, guid: 98e0db66b10845440a11ffbdfe6848f5, type: 3}
+    volume: 0.5
+    pitch: 3
   walkingKeyId: Walking
 --- !u!4 &542548012
 Transform:
@@ -4985,7 +4989,7 @@ MonoBehaviour:
     texts:
     - This doll's cheeks look so puffed up
     - like it's hiding something in its mouth
-    playOnlyOnce: 0
+    playOnlyOnce: 1
     hasPlayed: 0
   - button: {fileID: 681558967}
     texts:
@@ -17765,7 +17769,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2015960389}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 186910642}
+        m_TargetAssemblyTypeName: SquidTentaclePuzzleManager, Assembly-CSharp
+        m_MethodName: ResetTentaclePuzzle
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2018284338
 GameObject:
   m_ObjectHideFlags: 0
