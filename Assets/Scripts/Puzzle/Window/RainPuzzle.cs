@@ -18,6 +18,9 @@ public class RainPuzzleFlow : MonoBehaviour
     public GameObject gameObjectB;
     public Button rainWaterButton;
 
+    [Header("Back Button")]
+    public Button backButton;
+
     public static bool hasGlass = false;
     public static bool isRaining = false;
     public static bool hasRainWater = false;
@@ -45,6 +48,12 @@ public class RainPuzzleFlow : MonoBehaviour
         if (rainWaterButton != null)
             rainWaterButton.onClick.AddListener(PickupRainWater);
 
+        if (backButton != null)
+        {
+            backButton.onClick.AddListener(CloseCurrentPanel);
+            backButton.gameObject.SetActive(false);
+        }
+
         if (gameObjectA != null)
             gameObjectA.SetActive(false);
         if (gameObjectB != null)
@@ -56,7 +65,11 @@ public class RainPuzzleFlow : MonoBehaviour
         if (isRaining)
         {
             if (gameObjectB != null)
+            {
                 gameObjectB.SetActive(true);
+                if (backButton != null)
+                    backButton.gameObject.SetActive(true);
+            }
 
             if (gameObjectA != null)
                 gameObjectA.SetActive(false);
@@ -66,7 +79,11 @@ public class RainPuzzleFlow : MonoBehaviour
         else
         {
             if (gameObjectA != null)
+            {
                 gameObjectA.SetActive(true);
+                if (backButton != null)
+                    backButton.gameObject.SetActive(true);
+            }
 
             Debug.Log("GameObject A opened!");
         }
@@ -124,5 +141,17 @@ public class RainPuzzleFlow : MonoBehaviour
 
         if (rainWaterButton != null)
             Destroy(rainWaterButton.gameObject);
+    }
+
+    private void CloseCurrentPanel()
+    {
+        if (gameObjectA != null && gameObjectA.activeSelf)
+            gameObjectA.SetActive(false);
+
+        if (gameObjectB != null && gameObjectB.activeSelf)
+            gameObjectB.SetActive(false);
+
+        if (backButton != null)
+            backButton.gameObject.SetActive(false);
     }
 }

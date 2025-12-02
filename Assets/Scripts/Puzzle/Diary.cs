@@ -12,6 +12,9 @@ public class Diary : MonoBehaviour
     public Button nextButton;
     public Button prevButton;
 
+    [Header("Back Button")]
+    public Button backButton;
+
     [Header("Notebook Pages")]
     [TextArea(3, 6)]
     public List<string> pages = new List<string>();
@@ -30,6 +33,12 @@ public class Diary : MonoBehaviour
         nextButton.onClick.AddListener(NextPage);
         prevButton.onClick.AddListener(PrevPage);
 
+        if (backButton != null)
+        {
+            backButton.onClick.AddListener(CloseAllPanels);
+            backButton.gameObject.SetActive(false);
+        }
+
         if (pages.Count == 0 && preparedPages.Count > 0)
         {
             AddNewPage(preparedPages[nextPreparedIndex]);
@@ -42,12 +51,16 @@ public class Diary : MonoBehaviour
     public void OpenNotebook()
     {
         notebookPanel.SetActive(true);
+        if (backButton != null)
+            backButton.gameObject.SetActive(true);
         UpdateNotebookUI();
     }
 
     public void CloseNotebook()
     {
         notebookPanel.SetActive(false);
+        if (backButton != null)
+            backButton.gameObject.SetActive(false);
     }
 
     public void AddNewPage(string newText)
@@ -112,5 +125,16 @@ public class Diary : MonoBehaviour
     public bool IsAllPreparedPagesCollected()
     {
         return nextPreparedIndex >= preparedPages.Count;
+    }
+
+    private void CloseAllPanels()
+    {
+        if (notebookPanel != null && notebookPanel.activeSelf)
+            notebookPanel.SetActive(false);
+
+        if (backButton != null)
+            backButton.gameObject.SetActive(false);
+
+        Debug.Log("Diary panel closed via Back Button.");
     }
 }

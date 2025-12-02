@@ -1,13 +1,10 @@
 fileFormatVersion: 2
-guid: b4e42a96ce8eba3419fc94bb6e4a47ca
+guid: 6f48dbd999d71164985b70f48379b4fa
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6869373154045398419
-    second: IMG_9179_0
-  - first:
-      213: -4103760262863861476
-    second: IMG_9179_1
+      213: 7233122355420748617
+    second: DiaryBook_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,19 +97,6 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
     buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -129,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: IMG_9179_0
+      name: DiaryBook_0
       rect:
         serializedVersion: 2
-        x: 261
-        y: 26
-        width: 816
-        height: 598
+        x: 5
+        y: 2
+        width: 1263
+        height: 926
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -144,30 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d62f48b03851ba0a0800000000000000
-      internalID: -6869373154045398419
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: IMG_9179_1
-      rect:
-        serializedVersion: 2
-        x: 1102
-        y: 74
-        width: 8
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: c19c2a898c38c07c0800000000000000
-      internalID: -4103760262863861476
+      spriteID: 94b5ac3a576316460800000000000000
+      internalID: 7233122355420748617
       vertices: []
       indices: 
       edges: []
@@ -186,8 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      IMG_9179_0: -6869373154045398419
-      IMG_9179_1: -4103760262863861476
+      DiaryBook_0: 7233122355420748617
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

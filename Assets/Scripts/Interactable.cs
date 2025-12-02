@@ -22,7 +22,6 @@ public class TextGroupElement
     public bool hasPlayed = false;
 }
 
-// ====== เพิ่ม Button Text Group ======
 [System.Serializable]
 public class ButtonTextGroup
 {
@@ -94,7 +93,6 @@ public class Interactable : MonoBehaviour
         if (textBackground != null)
             textBackground.SetActive(false);
 
-        // ผูกปุ่ม ButtonTextGroup
         foreach (var btg in buttonTextGroups)
         {
             if (btg.button != null)
@@ -181,7 +179,6 @@ public class Interactable : MonoBehaviour
         ShowCurrentText();
     }
 
-    // ====== ฟังก์ชันใหม่สำหรับ ButtonTextGroup ======
     public void PlayButtonTextGroup(ButtonTextGroup btg)
     {
         if (btg.playOnlyOnce && btg.hasPlayed) return;
@@ -204,7 +201,7 @@ public class Interactable : MonoBehaviour
             sharedTextUI.text = btg.texts[0];
         }
 
-        currentButtonTextGroup = btg; // เก็บไว้ใช้ใน ContinueText
+        currentButtonTextGroup = btg;
     }
 
     private ButtonTextGroup currentButtonTextGroup = null;
