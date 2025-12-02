@@ -663,7 +663,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 5002934092266151977, guid: 80de52f2666c8e742a1ea6ac72599e48, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 80de52f2666c8e742a1ea6ac72599e48, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1963,7 +1963,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 25a8df5b8f3e1a54b83a058cac14e096, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e971869230380ac4ebf4fc513ac1d51a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2250,16 +2250,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 212919552}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.6733929, y: 1.9244019, z: 1.6733929}
+  m_LocalScale: {x: -1.5, y: 1.9244019, z: 1.6733929}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 646289182}
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 119, y: -166}
+  m_AnchoredPosition: {x: 132, y: -166}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &212919554
@@ -2326,7 +2326,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -8028581640954324151, guid: 5352b8ea327df7b4da2623cd679da20c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5352b8ea327df7b4da2623cd679da20c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2395,6 +2395,126 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &222782651
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 222782652}
+  - component: {fileID: 222782655}
+  - component: {fileID: 222782654}
+  - component: {fileID: 222782653}
+  m_Layer: 5
+  m_Name: Done_Button
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &222782652
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 222782651}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.09873096, y: 0.14540473, z: 0.17950757}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 659490896}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -0.0000058256, y: 24.1}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &222782653
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 222782651}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 222782654}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &222782654
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 222782651}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: e46deb045cc4b7a489eb7b8f41686a8b, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &222782655
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 222782651}
+  m_CullTransparentMesh: 1
 --- !u!1 &281746763
 GameObject:
   m_ObjectHideFlags: 0
@@ -2477,7 +2597,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Interactable
   interactType: 1
-  message: 
   panelToOpen: {fileID: 196074863}
   switchablePanels: []
   upButton: {fileID: 0}
@@ -2485,8 +2604,7 @@ MonoBehaviour:
   backButton: {fileID: 1766973204}
   textBackground: {fileID: 0}
   textUI: {fileID: 0}
-  textList: []
-  playOnlyOnce: 1
+  textGroups: []
   phaseManager: {fileID: 0}
   targetObjectToDestroy: {fileID: 0}
 --- !u!61 &311269060
@@ -2892,7 +3010,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Interactable
   interactType: 1
-  message: 
   panelToOpen: {fileID: 1416129060}
   switchablePanels: []
   upButton: {fileID: 0}
@@ -2900,8 +3017,7 @@ MonoBehaviour:
   backButton: {fileID: 1766973204}
   textBackground: {fileID: 0}
   textUI: {fileID: 0}
-  textList: []
-  playOnlyOnce: 1
+  textGroups: []
   phaseManager: {fileID: 0}
   targetObjectToDestroy: {fileID: 0}
 --- !u!1 &343516224
@@ -3046,7 +3162,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Interactable
   interactType: 1
-  message: 
   panelToOpen: {fileID: 933929336}
   switchablePanels: []
   upButton: {fileID: 0}
@@ -3054,8 +3169,7 @@ MonoBehaviour:
   backButton: {fileID: 1766973204}
   textBackground: {fileID: 0}
   textUI: {fileID: 0}
-  textList: []
-  playOnlyOnce: 1
+  textGroups: []
   phaseManager: {fileID: 0}
   targetObjectToDestroy: {fileID: 0}
 --- !u!61 &346562209
@@ -3437,7 +3551,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &399214931
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3734,7 +3848,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3d0ed5b9d21613f4585938ee40e73774, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d88fb3019eed79743be2487104230ed5, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4441,7 +4555,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Interactable
   interactType: 1
-  message: 
   panelToOpen: {fileID: 569838696}
   switchablePanels: []
   upButton: {fileID: 0}
@@ -4449,8 +4562,7 @@ MonoBehaviour:
   backButton: {fileID: 1766973204}
   textBackground: {fileID: 0}
   textUI: {fileID: 0}
-  textList: []
-  playOnlyOnce: 1
+  textGroups: []
   phaseManager: {fileID: 0}
   targetObjectToDestroy: {fileID: 0}
 --- !u!1 &569838696
@@ -4528,6 +4640,61 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 569838696}
   m_CullTransparentMesh: 1
+--- !u!1 &572744903
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 572744905}
+  - component: {fileID: 572744904}
+  m_Layer: 0
+  m_Name: InteractButtonManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &572744904
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 572744903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53d8e83ef13557045906c85697a8b7c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Interactable
+  interactType: 0
+  panelToOpen: {fileID: 0}
+  switchablePanels: []
+  upButton: {fileID: 0}
+  downButton: {fileID: 0}
+  backButton: {fileID: 0}
+  textBackground: {fileID: 0}
+  textUI: {fileID: 0}
+  textGroups: []
+  phaseManager: {fileID: 0}
+  targetObjectToDestroy: {fileID: 0}
+--- !u!4 &572744905
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 572744903}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.56914, y: 1.72715, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &578197289
 GameObject:
   m_ObjectHideFlags: 0
@@ -5091,7 +5258,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Interactable
   interactType: 1
-  message: 
   panelToOpen: {fileID: 50145670}
   switchablePanels: []
   upButton: {fileID: 0}
@@ -5099,8 +5265,7 @@ MonoBehaviour:
   backButton: {fileID: 1766973204}
   textBackground: {fileID: 0}
   textUI: {fileID: 0}
-  textList: []
-  playOnlyOnce: 1
+  textGroups: []
   phaseManager: {fileID: 0}
   targetObjectToDestroy: {fileID: 0}
 --- !u!61 &642773467
@@ -5335,7 +5500,7 @@ RectTransform:
   - {fileID: 189184192}
   - {fileID: 54698423}
   - {fileID: 1527615267}
-  - {fileID: 1702788728}
+  - {fileID: 222782652}
   m_Father: {fileID: 191294928}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -5363,7 +5528,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: e76702bffa57c0f43b7a3a6d6adfd8cc, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9762cfff9cfcbb34dbd7505ca1605336, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5603,7 +5768,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 3226866364116606084, guid: 1e9335fdc04469547835124c53b8f3f9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1e9335fdc04469547835124c53b8f3f9, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5678,7 +5843,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: ee938e8b10697de42a9651279d6dd0e0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d9ec69e4e6a8bff479c3532d6de7dbd7, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6144,8 +6309,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 88.92, y: -60.01}
-  m_SizeDelta: {x: 157.84, y: 50.01}
+  m_AnchoredPosition: {x: 104.705, y: -70.009995}
+  m_SizeDelta: {x: 189.41, y: 60.01}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &778920001
 MonoBehaviour:
@@ -6194,8 +6359,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 50
-  m_fontSizeBase: 50
+  m_fontSize: 60
+  m_fontSizeBase: 60
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -6424,7 +6589,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: d1a2e02a9bf7ac248bc57a1c47197c4b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 900d4a480af695a45b3c3097d4362103, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -8181,7 +8346,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -8815902780170423549, guid: ab62716f0cbd82c449ce316384c34d08, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ab62716f0cbd82c449ce316384c34d08, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -9253,7 +9418,51 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf1b6b9a31d370e4396f48cfd93639df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PhaseManager
-  phases: []
+  phases:
+  - changeColor: 1
+    changeSprite: 1
+    changePanel: 1
+    targetColorRenderer: {fileID: 1443861274}
+    sceneColor: {r: 0.14901961, g: 0.14901961, b: 0.14901961, a: 1}
+    targetSpriteRenderer: {fileID: 311269061}
+    sceneSprite: {fileID: 21300000, guid: 58be79b204048d4478dbdf2c7c74c1f0, type: 3}
+    targetPanelImage: {fileID: 196074865}
+    panelSprite: {fileID: 21300000, guid: 77b08a69d6cc4d14ab1565d816cfc2da, type: 3}
+    targetPanelImage2: {fileID: 101478710}
+    panelSprite2: {fileID: 21300000, guid: 77b08a69d6cc4d14ab1565d816cfc2da, type: 3}
+  - changeColor: 1
+    changeSprite: 1
+    changePanel: 1
+    targetColorRenderer: {fileID: 1443861274}
+    sceneColor: {r: 0.4264151, g: 0.4264151, b: 0.4264151, a: 1}
+    targetSpriteRenderer: {fileID: 311269061}
+    sceneSprite: {fileID: 21300000, guid: a38f211e0ce996144b6829185a78173b, type: 3}
+    targetPanelImage: {fileID: 196074865}
+    panelSprite: {fileID: 21300000, guid: 57d249339a6235b4b8e00435396de8fd, type: 3}
+    targetPanelImage2: {fileID: 101478710}
+    panelSprite2: {fileID: 21300000, guid: 57d249339a6235b4b8e00435396de8fd, type: 3}
+  - changeColor: 1
+    changeSprite: 1
+    changePanel: 1
+    targetColorRenderer: {fileID: 1443861274}
+    sceneColor: {r: 0.735849, g: 0.735849, b: 0.735849, a: 1}
+    targetSpriteRenderer: {fileID: 311269061}
+    sceneSprite: {fileID: 21300000, guid: a38f211e0ce996144b6829185a78173b, type: 3}
+    targetPanelImage: {fileID: 196074865}
+    panelSprite: {fileID: 21300000, guid: 57d249339a6235b4b8e00435396de8fd, type: 3}
+    targetPanelImage2: {fileID: 101478710}
+    panelSprite2: {fileID: 21300000, guid: 57d249339a6235b4b8e00435396de8fd, type: 3}
+  - changeColor: 1
+    changeSprite: 1
+    changePanel: 1
+    targetColorRenderer: {fileID: 1443861274}
+    sceneColor: {r: 0.735849, g: 0.735849, b: 0.735849, a: 1}
+    targetSpriteRenderer: {fileID: 311269061}
+    sceneSprite: {fileID: 21300000, guid: a38f211e0ce996144b6829185a78173b, type: 3}
+    targetPanelImage: {fileID: 196074865}
+    panelSprite: {fileID: 21300000, guid: 57d249339a6235b4b8e00435396de8fd, type: 3}
+    targetPanelImage2: {fileID: 101478710}
+    panelSprite2: {fileID: 21300000, guid: 57d249339a6235b4b8e00435396de8fd, type: 3}
 --- !u!4 &1159595861
 Transform:
   m_ObjectHideFlags: 0
@@ -9557,16 +9766,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1204438674}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 8.5009365, y: 5.414609, z: 5.30844}
+  m_LocalScale: {x: -8.48, y: 5.414609, z: 5.30844}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 646289182}
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 297, y: 157}
+  m_AnchoredPosition: {x: 297, y: 177}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1204438676
@@ -9633,7 +9842,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -6137975067004280308, guid: a6bee4406f7215a4ea12947c2c4db0b2, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a6bee4406f7215a4ea12947c2c4db0b2, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -9974,7 +10183,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: bd107d14c2dcef84f8795b214f2e074f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d7193901eba3aa444b01222b4fe46bb8, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -10037,7 +10246,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Interactable
   interactType: 1
-  message: 
   panelToOpen: {fileID: 1706413981}
   switchablePanels:
   - {fileID: 1706413981}
@@ -10047,10 +10255,7 @@ MonoBehaviour:
   backButton: {fileID: 1766973204}
   textBackground: {fileID: 1630582286}
   textUI: {fileID: 778920001}
-  textList:
-  - Heyyyyy
-  - pkodskfpsokfpsdokfpsokdfkfpsdkfpsdfko
-  playOnlyOnce: 1
+  textGroups: []
   phaseManager: {fileID: 0}
   targetObjectToDestroy: {fileID: 0}
 --- !u!61 &1273590005
@@ -11101,20 +11306,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Interactable
   interactType: 1
-  message: Nothing here
-  panelToOpen: {fileID: 1978298718}
-  switchablePanels: []
-  upButton: {fileID: 0}
-  downButton: {fileID: 0}
+  panelToOpen: {fileID: 646289181}
+  switchablePanels:
+  - {fileID: 646289181}
+  - {fileID: 1978298718}
+  - {fileID: 1896227273}
+  upButton: {fileID: 176841045}
+  downButton: {fileID: 801876208}
   backButton: {fileID: 1766973204}
   textBackground: {fileID: 1630582286}
   textUI: {fileID: 778920001}
-  textList:
-  - Hello
-  - Where are you from?
-  - Heyyyyyyyyy
-  - Mannnnnnnnnn
-  playOnlyOnce: 1
+  textGroups:
+  - texts:
+    - On this bookshelf, there are countless stories
+    - but sometimes...
+    - I don't want to know these stories
+    panelIndex: 0
+    playOnlyOnce: 1
+    hasPlayed: 0
+  - texts:
+    - I remember that there were more books
+    - It feels like one of them is missing
+    panelIndex: 1
+    playOnlyOnce: 1
+    hasPlayed: 0
   phaseManager: {fileID: 0}
   targetObjectToDestroy: {fileID: 0}
 --- !u!61 &1384325682
@@ -11294,7 +11509,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: d53ddf8735884394fb5c8f8da2224551, type: 3}
+  m_Sprite: {fileID: 21300000, guid: fc841c79d17b877419cc30e47df082fe, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -11966,7 +12181,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 5
   m_Sprite: {fileID: -4813359012347725248, guid: 0b65a5ba82f943746be6229b79ef3805, type: 3}
-  m_Color: {r: 0.2754717, g: 0.2754717, b: 0.2754717, a: 1}
+  m_Color: {r: 0.14716971, g: 0.14716971, b: 0.14716971, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -12004,7 +12219,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Interactable
   interactType: 2
-  message: 
   panelToOpen: {fileID: 0}
   switchablePanels: []
   upButton: {fileID: 0}
@@ -12012,9 +12226,7 @@ MonoBehaviour:
   backButton: {fileID: 0}
   textBackground: {fileID: 1630582286}
   textUI: {fileID: 778920001}
-  textList:
-  - ...
-  playOnlyOnce: 0
+  textGroups: []
   phaseManager: {fileID: 1159595860}
   targetObjectToDestroy: {fileID: 1443861271}
 --- !u!1 &1493272328
@@ -12488,7 +12700,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 25a8df5b8f3e1a54b83a058cac14e096, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b6cb277a9ead3a84796dd9926b8dff49, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -12793,7 +13005,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Interactable
   interactType: 1
-  message: 
   panelToOpen: {fileID: 0}
   switchablePanels: []
   upButton: {fileID: 0}
@@ -12801,10 +13012,7 @@ MonoBehaviour:
   backButton: {fileID: 0}
   textBackground: {fileID: 1630582286}
   textUI: {fileID: 778920001}
-  textList:
-  - The Door
-  - Need to find a KEY
-  playOnlyOnce: 0
+  textGroups: []
   phaseManager: {fileID: 0}
   targetObjectToDestroy: {fileID: 0}
 --- !u!1 &1607527451
@@ -13128,8 +13336,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -355}
-  m_SizeDelta: {x: 177.84, y: 70.009995}
+  m_AnchoredPosition: {x: 0, y: -334}
+  m_SizeDelta: {x: 209.41, y: 80.009995}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1630582288
 MonoBehaviour:
@@ -13649,7 +13857,7 @@ MonoBehaviour:
   input2: {fileID: 189184195}
   input3: {fileID: 54698426}
   input4: {fileID: 1527615266}
-  submitButton: {fileID: 1702788731}
+  submitButton: {fileID: 222782653}
   destroyObjectButton: {fileID: 1871073624}
   objectToDestroy: {fileID: 1871073620}
   correctPassword: 0312
@@ -13670,126 +13878,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1702788727
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1702788728}
-  - component: {fileID: 1702788730}
-  - component: {fileID: 1702788729}
-  - component: {fileID: 1702788731}
-  m_Layer: 5
-  m_Name: Done_Button
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1702788728
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1702788727}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.49791, y: 0.49791, z: 0.49791}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 659490896}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.7, y: 21.1}
-  m_SizeDelta: {x: 20, y: 30}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1702788729
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1702788727}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 1
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &1702788730
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1702788727}
-  m_CullTransparentMesh: 1
---- !u!114 &1702788731
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1702788727}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
-  m_Navigation:
-    m_Mode: 3
-    m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Selected
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 1702788729}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &1706073334
 GameObject:
   m_ObjectHideFlags: 0
@@ -14013,13 +14101,13 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1712823265}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 5.2851, y: 6.0778646, z: 5.2851}
+  m_LocalScale: {x: -5, y: 6.0778646, z: 5.2851}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 646289182}
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -493, y: 104}
@@ -14089,7 +14177,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -5031195775415757464, guid: c54b66bd0c79c75488f1d3552d3bc9c1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c54b66bd0c79c75488f1d3552d3bc9c1, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -15482,7 +15570,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 370e2f342cd5d314c988c14d01d83a02, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4d42331f0c0a9f44db2de985b17078ae, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -16066,6 +16154,7 @@ GameObject:
   - component: {fileID: 2015960388}
   - component: {fileID: 2015960390}
   - component: {fileID: 2015960389}
+  - component: {fileID: 2015960391}
   m_Layer: 5
   m_Name: OctopusHead_Image
   m_TagString: Untagged
@@ -16130,6 +16219,62 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2015960387}
   m_CullTransparentMesh: 1
+--- !u!114 &2015960391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2015960387}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 2015960389}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 572744903}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2018284338
 GameObject:
   m_ObjectHideFlags: 0
@@ -16281,7 +16426,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Interactable
   interactType: 1
-  message: 
   panelToOpen: {fileID: 792527883}
   switchablePanels: []
   upButton: {fileID: 0}
@@ -16289,8 +16433,7 @@ MonoBehaviour:
   backButton: {fileID: 1766973204}
   textBackground: {fileID: 0}
   textUI: {fileID: 0}
-  textList: []
-  playOnlyOnce: 1
+  textGroups: []
   phaseManager: {fileID: 0}
   targetObjectToDestroy: {fileID: 0}
 --- !u!1 &2022989895
@@ -16565,7 +16708,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -4385123184235466959, guid: 8540d7e00acc61b4f8adfaee261e45cd, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e2934b1cec8da30499b6e506c01555c3, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -16867,7 +17010,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Interactable
   interactType: 1
-  message: 
   panelToOpen: {fileID: 798897133}
   switchablePanels:
   - {fileID: 798897133}
@@ -16877,8 +17019,7 @@ MonoBehaviour:
   backButton: {fileID: 1766973204}
   textBackground: {fileID: 0}
   textUI: {fileID: 0}
-  textList: []
-  playOnlyOnce: 1
+  textGroups: []
   phaseManager: {fileID: 0}
   targetObjectToDestroy: {fileID: 0}
 --- !u!1 &2079145165
@@ -17339,3 +17480,4 @@ SceneRoots:
   - {fileID: 1493272330}
   - {fileID: 1696938126}
   - {fileID: 1159595861}
+  - {fileID: 572744905}

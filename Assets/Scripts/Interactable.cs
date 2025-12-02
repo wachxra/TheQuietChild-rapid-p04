@@ -10,11 +10,33 @@ public enum InteractType
     PhaseFinalObject
 }
 
+[System.Serializable]
+public class TextGroupElement
+{
+    [TextArea]
+    public string[] texts;
+
+    public int panelIndex;
+    public bool playOnlyOnce;
+    [HideInInspector]
+    public bool hasPlayed = false;
+}
+
+// ====== เพิ่ม Button Text Group ======
+[System.Serializable]
+public class ButtonTextGroup
+{
+    public Button button;
+    [TextArea]
+    public string[] texts;
+    public bool playOnlyOnce = false;
+    [HideInInspector]
+    public bool hasPlayed = false;
+}
+
 public class Interactable : MonoBehaviour
 {
     public InteractType interactType;
-
-    [TextArea] public string message;
 
     [Header("Single Panel (Default)")]
     public GameObject panelToOpen;
@@ -32,10 +54,11 @@ public class Interactable : MonoBehaviour
     public TextMeshProUGUI textUI;
     public static TextMeshProUGUI sharedTextUI;
 
-    [Header("Text List System")]
-    public string[] textList;
-    public bool playOnlyOnce = true;
-    private bool listPlayed = false;
+    [Header("Text Group System")]
+    public TextGroupElement[] textGroups;
+
+    [Header("Button Text Groups")]
+    public ButtonTextGroup[] buttonTextGroups;
 
     [Header("Phase Manager Reference (Optional for PhaseFinalObject)")]
     public PhaseManager phaseManager;
@@ -43,10 +66,9 @@ public class Interactable : MonoBehaviour
 
     private bool isPlayingText = false;
     private int currentTextIndex = 0;
-
-    private int currentIndex = 0;
+    private int currentPanelIndex = 0;
+    private int currentGroupIndex = 0;
     private bool switchingEnabled = false;
-
     private bool waitForNextKey = false;
     private CanvasGroup panelCanvasGroup;
 
@@ -71,6 +93,13 @@ public class Interactable : MonoBehaviour
 
         if (textBackground != null)
             textBackground.SetActive(false);
+
+        // ผูกปุ่ม ButtonTextGroup
+        foreach (var btg in buttonTextGroups)
+        {
+            if (btg.button != null)
+                btg.button.onClick.AddListener(() => PlayButtonTextGroup(btg));
+        }
     }
 
     void Update()
@@ -104,24 +133,109 @@ public class Interactable : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.DownArrow)) SwitchPanel(1);
     }
 
-    public void PlayTextList(bool ignorePlayOnce = false)
+    private bool IsUsingTextGroups()
     {
-        if (textList == null || textList.Length == 0)
+        return (textGroups != null && textGroups.Length > 0);
+    }
+
+    public void PlayTextGroup(bool ignorePlayOnce = false, int groupIndex = -1)
+    {
+        if (!IsUsingTextGroups()) return;
+
+        if (groupIndex >= 0)
+            currentGroupIndex = groupIndex;
+
+        TextGroupElement group = textGroups[currentGroupIndex];
+
+        if (group.playOnlyOnce && group.hasPlayed && !ignorePlayOnce)
             return;
 
-        if (playOnlyOnce && listPlayed && !ignorePlayOnce)
-            return;
-
-        listPlayed = true;
+        group.hasPlayed = true;
         isPlayingText = true;
-
-        Interactable.IsAnyTextPlaying = true;
-
+        IsAnyTextPlaying = true;
         currentTextIndex = 0;
         waitForNextKey = false;
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+
+        if (switchablePanels != null && switchablePanels.Length > 0 &&
+            group.panelIndex >= 0 && group.panelIndex < switchablePanels.Length)
+        {
+            foreach (var p in switchablePanels)
+                p.SetActive(false);
+
+            switchablePanels[group.panelIndex].SetActive(true);
+            panelCanvasGroup = switchablePanels[group.panelIndex].GetComponent<CanvasGroup>();
+            if (panelCanvasGroup == null)
+                panelCanvasGroup = switchablePanels[group.panelIndex].AddComponent<CanvasGroup>();
+        }
+        else if (panelToOpen != null)
+        {
+            panelToOpen.SetActive(true);
+            panelCanvasGroup = panelToOpen.GetComponent<CanvasGroup>();
+            if (panelCanvasGroup == null)
+                panelCanvasGroup = panelToOpen.AddComponent<CanvasGroup>();
+        }
+
+        ShowCurrentText();
+    }
+
+    // ====== ฟังก์ชันใหม่สำหรับ ButtonTextGroup ======
+    public void PlayButtonTextGroup(ButtonTextGroup btg)
+    {
+        if (btg.playOnlyOnce && btg.hasPlayed) return;
+
+        btg.hasPlayed = true;
+        isPlayingText = true;
+        IsAnyTextPlaying = true;
+        currentTextIndex = 0;
+        waitForNextKey = false;
+
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+
+        if (textBackground != null)
+            textBackground.SetActive(true);
+
+        if (sharedTextUI != null)
+        {
+            sharedTextUI.gameObject.SetActive(true);
+            sharedTextUI.text = btg.texts[0];
+        }
+
+        currentButtonTextGroup = btg; // เก็บไว้ใช้ใน ContinueText
+    }
+
+    private ButtonTextGroup currentButtonTextGroup = null;
+
+    public void ContinueText()
+    {
+        if (!isPlayingText) return;
+
+        currentTextIndex++;
+
+        if (currentButtonTextGroup != null)
+        {
+            if (currentTextIndex >= currentButtonTextGroup.texts.Length)
+            {
+                EndText();
+                currentButtonTextGroup = null;
+                return;
+            }
+            sharedTextUI.text = currentButtonTextGroup.texts[currentTextIndex];
+            return;
+        }
+
+        if (IsUsingTextGroups())
+        {
+            TextGroupElement group = textGroups[currentGroupIndex];
+            if (currentTextIndex >= group.texts.Length)
+            {
+                EndText();
+                return;
+            }
+        }
 
         ShowCurrentText();
     }
@@ -129,8 +243,9 @@ public class Interactable : MonoBehaviour
     private void EndText()
     {
         isPlayingText = false;
-        Interactable.IsAnyTextPlaying = false;
+        IsAnyTextPlaying = false;
         waitForNextKey = false;
+        currentButtonTextGroup = null;
 
         if (sharedTextUI != null)
             sharedTextUI.gameObject.SetActive(false);
@@ -147,9 +262,7 @@ public class Interactable : MonoBehaviour
         if (interactType == InteractType.PhaseFinalObject && phaseManager != null && phaseManager.CurrentPhaseIsLast())
         {
             if (targetObjectToDestroy != null)
-            {
                 Destroy(targetObjectToDestroy);
-            }
         }
     }
 
@@ -161,22 +274,14 @@ public class Interactable : MonoBehaviour
             textBackground.SetActive(true);
 
         sharedTextUI.gameObject.SetActive(true);
-        sharedTextUI.text = textList[currentTextIndex];
-    }
 
-    public void ContinueText()
-    {
-        if (!isPlayingText) return;
-
-        currentTextIndex++;
-
-        if (currentTextIndex >= textList.Length)
+        if (IsUsingTextGroups())
         {
-            EndText();
-            return;
-        }
+            TextGroupElement group = textGroups[currentGroupIndex];
 
-        ShowCurrentText();
+            if (currentTextIndex >= 0 && currentTextIndex < group.texts.Length)
+                sharedTextUI.text = group.texts[currentTextIndex];
+        }
     }
 
     private GameObject GetActivePanel()
@@ -209,18 +314,28 @@ public class Interactable : MonoBehaviour
     {
         if (switchablePanels == null || switchablePanels.Length == 0) return;
 
-        switchablePanels[currentIndex].SetActive(false);
+        switchablePanels[currentPanelIndex].SetActive(false);
 
-        currentIndex += direction;
-        if (currentIndex < 0)
-            currentIndex = switchablePanels.Length - 1;
-        else if (currentIndex >= switchablePanels.Length)
-            currentIndex = 0;
+        currentPanelIndex += direction;
+        if (currentPanelIndex < 0)
+            currentPanelIndex = switchablePanels.Length - 1;
+        else if (currentPanelIndex >= switchablePanels.Length)
+            currentPanelIndex = 0;
 
-        switchablePanels[currentIndex].SetActive(true);
+        switchablePanels[currentPanelIndex].SetActive(true);
+        currentTextIndex = 0;
+
+        for (int i = 0; i < textGroups.Length; i++)
+        {
+            if (textGroups[i].panelIndex == currentPanelIndex)
+            {
+                PlayTextGroup(false, i);
+                break;
+            }
+        }
 
         if (UIManager.Instance != null)
-            UIManager.Instance.TogglePuzzlePanel(switchablePanels[currentIndex]);
+            UIManager.Instance.TogglePuzzlePanel(switchablePanels[currentPanelIndex]);
     }
 
     public void BackUI()
@@ -250,74 +365,36 @@ public class Interactable : MonoBehaviour
     public void Interact()
     {
         if (IsAnyTextPlaying)
-        {
             return;
-        }
 
-        switch (interactType)
+        if (switchablePanels != null && switchablePanels.Length > 0)
         {
-            case InteractType.ShowText:
-                UIManager.Instance.ToggleDialogue(message);
-                break;
+            switchingEnabled = true;
 
-            case InteractType.OpenPanel:
-                if (panelToOpen != null && panelToOpen.CompareTag("DoorPanel"))
+            currentPanelIndex = 0;
+            foreach (var p in switchablePanels) p.SetActive(false);
+            switchablePanels[currentPanelIndex].SetActive(true);
+
+            if (upButton != null) upButton.gameObject.SetActive(true);
+            if (downButton != null) downButton.gameObject.SetActive(true);
+            if (backButton != null) backButton.gameObject.SetActive(true);
+
+            UIManager.Instance?.TogglePuzzlePanel(switchablePanels[currentPanelIndex]);
+
+            for (int i = 0; i < textGroups.Length; i++)
+            {
+                if (textGroups[i].panelIndex == currentPanelIndex)
                 {
-                    Diary diary = Object.FindFirstObjectByType<Diary>();
-                    if (diary != null)
-                    {
-                        if (!diary.IsAllPreparedPagesCollected())
-                        {
-                            PlayTextList(false);
-                            return;
-                        }
-                        else
-                        {
-                            SceneManager.LoadScene("OutroScene");
-                            return;
-                        }
-                    }
+                    PlayTextGroup(false, i);
+                    break;
                 }
-
-                if (UIManager.Instance != null && UIManager.Instance.IsUIOpen)
-                    return;
-
-                if (switchablePanels != null && switchablePanels.Length > 1)
-                {
-                    switchingEnabled = true;
-
-                    if (upButton != null) upButton.gameObject.SetActive(true);
-                    if (downButton != null) downButton.gameObject.SetActive(true);
-                    if (backButton != null) backButton.gameObject.SetActive(true);
-
-                    foreach (var p in switchablePanels)
-                        p.SetActive(false);
-
-                    currentIndex = 0;
-                    switchablePanels[currentIndex].SetActive(true);
-
-                    UIManager.Instance.TogglePuzzlePanel(switchablePanels[currentIndex]);
-
-                    PlayTextList(false);
-                }
-                else
-                {
-                    switchingEnabled = false;
-
-                    if (upButton != null) upButton.gameObject.SetActive(false);
-                    if (downButton != null) downButton.gameObject.SetActive(false);
-                    if (backButton != null) backButton.gameObject.SetActive(true);
-
-                    if (panelToOpen != null)
-                        UIManager.Instance.TogglePuzzlePanel(panelToOpen);
-
-                    PlayTextList(false);
-                }
-                break;
-
-            case InteractType.PhaseFinalObject:
-                PlayTextList(false);
-                break;
+            }
+        }
+        else if (panelToOpen != null)
+        {
+            panelToOpen.SetActive(true);
+            switchingEnabled = false;
+            UIManager.Instance?.TogglePuzzlePanel(panelToOpen);
         }
     }
 }
