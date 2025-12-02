@@ -88,6 +88,9 @@ public class BookSlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
         transform.SetSiblingIndex(targetIndex);
         manager.SwapBooks(this, targetIndex);
 
+        if (AudioManager.Instance != null)
+            AudioManager.Instance.PlaySFX("BookSlot");
+
         Destroy(placeholder);
         rectTransform.anchoredPosition = Vector2.zero;
         LayoutRebuilder.ForceRebuildLayoutImmediate(parentBeforeDrag as RectTransform);

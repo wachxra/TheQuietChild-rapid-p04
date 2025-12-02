@@ -41,6 +41,11 @@ public class JigsawSlot : MonoBehaviour
             img.color = color;
         }
 
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.PlaySFX("JigsawSlot");
+        }
+
         UnityEngine.Object.FindAnyObjectByType<JigsawPuzzleManager>().CheckCompletion();
     }
 
