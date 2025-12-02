@@ -101,6 +101,7 @@ public class Diary : MonoBehaviour
     {
         if (currentPage < pages.Count - 1)
         {
+            AudioManager.Instance.PlaySFX("NextPage");
             currentPage++;
             UpdateNotebookUI();
         }
@@ -110,6 +111,7 @@ public class Diary : MonoBehaviour
     {
         if (currentPage > 0)
         {
+            AudioManager.Instance.PlaySFX("NextPage");
             currentPage--;
             UpdateNotebookUI();
         }
