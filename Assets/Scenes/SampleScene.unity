@@ -2458,7 +2458,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 1, g: 0.3226415, b: 0.3226415, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
@@ -3188,6 +3188,7 @@ MonoBehaviour:
     panelIndex: 0
     playOnlyOnce: 1
     hasPlayed: 0
+    keyEventReplacements: []
   buttonTextGroups: []
   phaseManager: {fileID: 0}
   targetObjectToDestroy: {fileID: 0}
@@ -4682,9 +4683,13 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 98e0db66b10845440a11ffbdfe6848f5, type: 3}
     volume: 0.5
     pitch: 1
-  - keyId: Raining
-    clip: {fileID: 8300000, guid: 98e0db66b10845440a11ffbdfe6848f5, type: 3}
-    volume: 0.5
+  - keyId: BookSlot
+    clip: {fileID: 8300000, guid: 82db68eeee39f024fbb65543e6e3fac1, type: 3}
+    volume: 1
+    pitch: 1
+  - keyId: JigsawSlot
+    clip: {fileID: 8300000, guid: 9993f160639f80446af144c953449c5d, type: 3}
+    volume: 1
     pitch: 3
   walkingKeyId: Walking
 --- !u!4 &542548012
@@ -4867,6 +4872,7 @@ MonoBehaviour:
     panelIndex: 0
     playOnlyOnce: 1
     hasPlayed: 0
+    keyEventReplacements: []
   buttonTextGroups: []
   phaseManager: {fileID: 0}
   targetObjectToDestroy: {fileID: 0}
@@ -5122,7 +5128,7 @@ MonoBehaviour:
     - When I was a kid, I used to play with these a lot
     playOnlyOnce: 0
     hasPlayed: 0
-  - button: {fileID: 2141613465}
+  - button: {fileID: 878162418}
     texts:
     - This picture has never brought me good memories
     - It would be nice if I could forget it
@@ -12678,12 +12684,18 @@ MonoBehaviour:
     panelIndex: 0
     playOnlyOnce: 1
     hasPlayed: 0
+    keyEventReplacements: []
   - texts:
     - I remember that there were more books
     - It feels like one of them is missing
     panelIndex: 1
     playOnlyOnce: 1
     hasPlayed: 0
+    keyEventReplacements:
+    - eventKey: HasLastBook
+      newTexts:
+      - It looks so out of place
+      - Huh, it doesn't look like how I placed it before
   buttonTextGroups: []
   phaseManager: {fileID: 0}
   targetObjectToDestroy: {fileID: 0}
@@ -13595,6 +13607,7 @@ MonoBehaviour:
     panelIndex: 0
     playOnlyOnce: 0
     hasPlayed: 0
+    keyEventReplacements: []
   buttonTextGroups: []
   phaseManager: {fileID: 1159595860}
   targetObjectToDestroy: {fileID: 1443861271}
@@ -14791,6 +14804,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CollectBook
   puzzleManager: {fileID: 708221704}
   slotToActivate: {fileID: 960062465}
+  interactable: {fileID: 0}
 --- !u!1 &1630582286
 GameObject:
   m_ObjectHideFlags: 0
@@ -18073,6 +18087,7 @@ MonoBehaviour:
     panelIndex: 0
     playOnlyOnce: 1
     hasPlayed: 0
+    keyEventReplacements: []
   buttonTextGroups: []
   phaseManager: {fileID: 0}
   targetObjectToDestroy: {fileID: 0}
@@ -18803,11 +18818,13 @@ MonoBehaviour:
     panelIndex: 0
     playOnlyOnce: 1
     hasPlayed: 0
+    keyEventReplacements: []
   - texts:
     - I usually keep the things I like on this shelf
     panelIndex: 1
     playOnlyOnce: 1
     hasPlayed: 0
+    keyEventReplacements: []
   buttonTextGroups: []
   phaseManager: {fileID: 0}
   targetObjectToDestroy: {fileID: 0}

@@ -90,6 +90,8 @@ public class Diary : MonoBehaviour
             PhaseManager phaseManager = Object.FindFirstObjectByType<PhaseManager>();
             if (phaseManager != null)
                 phaseManager.UpdatePhase();
+
+            AudioManager.Instance.PlaySFX("PickUp");
         }
         else
         {

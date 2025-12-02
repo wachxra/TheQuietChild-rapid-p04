@@ -7,6 +7,7 @@ public class CollectBook : MonoBehaviour
     public BookSlot slotToActivate;
 
     private Button button;
+    public Interactable interactable;
 
     void Awake()
     {
@@ -23,6 +24,8 @@ public class CollectBook : MonoBehaviour
         }
 
         AudioManager.Instance.PlaySFX("PickUp");
+        interactable.TriggerKeyEvent("HasLastBook");
+
         Destroy(gameObject);
     }
 }

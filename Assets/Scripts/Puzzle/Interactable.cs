@@ -11,6 +11,14 @@ public enum InteractType
 }
 
 [System.Serializable]
+public class KeyEventText
+{
+    public string eventKey;
+    [TextArea]
+    public string[] newTexts;
+}
+
+[System.Serializable]
 public class TextGroupElement
 {
     [TextArea]
@@ -20,6 +28,9 @@ public class TextGroupElement
     public bool playOnlyOnce;
     [HideInInspector]
     public bool hasPlayed = false;
+
+    [Header("Optional Key Event Replacement")]
+    public KeyEventText[] keyEventReplacements;
 }
 
 [System.Serializable]
@@ -72,6 +83,8 @@ public class Interactable : MonoBehaviour
     private CanvasGroup panelCanvasGroup;
 
     public static bool IsAnyTextPlaying = false;
+
+    private ButtonTextGroup currentButtonTextGroup = null;
 
     void Start()
     {
@@ -217,8 +230,6 @@ public class Interactable : MonoBehaviour
 
         currentButtonTextGroup = btg;
     }
-
-    private ButtonTextGroup currentButtonTextGroup = null;
 
     public void ContinueText()
     {
@@ -439,6 +450,25 @@ public class Interactable : MonoBehaviour
             panelToOpen.SetActive(true);
             switchingEnabled = false;
             UIManager.Instance?.TogglePuzzlePanel(panelToOpen);
+        }
+    }
+
+    public void TriggerKeyEvent(string eventKey)
+    {
+        if (textGroups == null || textGroups.Length == 0) return;
+
+        foreach (var group in textGroups)
+        {
+            if (group.keyEventReplacements == null) continue;
+
+            foreach (var ket in group.keyEventReplacements)
+            {
+                if (ket.eventKey == eventKey && ket.newTexts != null && ket.newTexts.Length > 0)
+                {
+                    group.texts = ket.newTexts;
+                    group.hasPlayed = false;
+                }
+            }
         }
     }
 }
