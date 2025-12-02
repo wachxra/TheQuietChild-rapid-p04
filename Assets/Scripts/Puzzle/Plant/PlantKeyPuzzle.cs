@@ -36,6 +36,7 @@ public class PlantKeyPuzzle : MonoBehaviour
         }
 
         RainPuzzleFlow.hasRainWater = false;
+        AudioManager.Instance.PlaySFX("WaterPlant");
         Debug.Log("Tree watered! hasRainWater = " + RainPuzzleFlow.hasRainWater);
 
         if (gameObjectA != null)
@@ -45,6 +46,7 @@ public class PlantKeyPuzzle : MonoBehaviour
     private void PickupKey()
     {
         hasKey = true;
+        AudioManager.Instance.PlaySFX("PickUp");
         Debug.Log("Key collected! hasKey = " + hasKey);
 
         if (keyButton != null && keyCollectedSprite != null)

@@ -104,6 +104,7 @@ public class RainPuzzleFlow : MonoBehaviour
     private void PickupGlass()
     {
         hasGlass = true;
+        AudioManager.Instance.PlaySFX("PickUp");
 
         if (glassButton != null)
             Destroy(glassButton.gameObject);

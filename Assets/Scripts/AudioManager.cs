@@ -25,6 +25,10 @@ public class AudioManager : MonoBehaviour
 
     private Dictionary<string, SoundEffect> sfxDict = new Dictionary<string, SoundEffect>();
 
+    [Header("Walking SFX Settings")]
+    public string walkingKeyId;
+    private bool isWalkingPlaying = false;
+
     void Awake()
     {
         if (Instance == null)
@@ -94,6 +98,39 @@ public class AudioManager : MonoBehaviour
     {
         if (sfxSource != null)
             sfxSource.volume = Mathf.Clamp01(volume);
+    }
+    #endregion
+
+    #region Walking Loop
+    public void PlayWalkingLoop()
+    {
+        if (sfxSource == null || isWalkingPlaying) return;
+
+        if (!sfxDict.TryGetValue(walkingKeyId, out SoundEffect sfx))
+        {
+            Debug.LogWarning($"Walking SFX key not found: {walkingKeyId}");
+            return;
+        }
+
+        sfxSource.Stop();
+        sfxSource.clip = sfx.clip;
+        sfxSource.volume = sfx.volume;
+        sfxSource.pitch = sfx.pitch;
+        sfxSource.loop = true;
+        sfxSource.Play();
+
+        isWalkingPlaying = true;
+    }
+
+    public void StopWalkingLoop()
+    {
+        if (sfxSource == null || !isWalkingPlaying) return;
+
+        sfxSource.Stop();
+        sfxSource.loop = false;
+        sfxSource.clip = null;
+
+        isWalkingPlaying = false;
     }
     #endregion
 }

@@ -22,6 +22,7 @@ public class CollectBook : MonoBehaviour
             puzzleManager.AddExtraBook(slotToActivate);
         }
 
+        AudioManager.Instance.PlaySFX("PickUp");
         Destroy(gameObject);
     }
 }

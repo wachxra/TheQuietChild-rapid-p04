@@ -96,7 +96,10 @@ public class Interactable : MonoBehaviour
         foreach (var btg in buttonTextGroups)
         {
             if (btg.button != null)
+            {
+                btg.button.onClick.AddListener(() => PlayClickSFX());
                 btg.button.onClick.AddListener(() => PlayButtonTextGroup(btg));
+            }
         }
     }
 
@@ -129,6 +132,12 @@ public class Interactable : MonoBehaviour
         if (!switchingEnabled) return;
         if (Input.GetKeyDown(KeyCode.UpArrow)) SwitchPanel(-1);
         else if (Input.GetKeyDown(KeyCode.DownArrow)) SwitchPanel(1);
+    }
+
+    private void PlayClickSFX()
+    {
+        if (AudioManager.Instance != null)
+            AudioManager.Instance.PlaySFX("Click");
     }
 
     private bool IsUsingTextGroups()
@@ -261,7 +270,6 @@ public class Interactable : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
 
-        // --- สำหรับ PhaseFinalObject ---
         if (interactType == InteractType.PhaseFinalObject && phaseManager != null && phaseManager.CurrentPhaseIsLast())
         {
             if (targetObjectToDestroy != null)

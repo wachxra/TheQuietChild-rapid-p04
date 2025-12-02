@@ -29,15 +29,11 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if (Interactable.IsAnyTextPlaying)
+        if (Interactable.IsAnyTextPlaying || (UIManager.Instance != null && UIManager.Instance.IsUIOpen))
         {
             movement = Vector2.zero;
-            return;
-        }
 
-        if (UIManager.Instance != null && UIManager.Instance.IsUIOpen)
-        {
-            movement = Vector2.zero;
+            AudioManager.Instance.StopWalkingLoop();
             return;
         }
 
@@ -48,6 +44,12 @@ public class PlayerController : MonoBehaviour
         {
             lookDirection = movement.normalized;
             UpdateSpriteDirection();
+
+            AudioManager.Instance.PlayWalkingLoop();
+        }
+        else
+        {
+            AudioManager.Instance.StopWalkingLoop();
         }
 
         DetectInteractable();

@@ -19,6 +19,7 @@ public class ClosetPuzzle : MonoBehaviour
             lampPuzzle.ReceiveLampPart(3);
         }
 
+        AudioManager.Instance.PlaySFX("PickUp");
         Destroy(batteryButton.gameObject);
     }
 }

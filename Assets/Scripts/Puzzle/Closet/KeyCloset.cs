@@ -58,13 +58,16 @@ public class KeyCloset : MonoBehaviour
     {
         if (PlantKeyPuzzle.hasKey && !redirected)
         {
-            if (closetInteractable != null && newPanelAfterKey != null)
-                closetInteractable.panelToOpen = newPanelAfterKey;
+            if (switchablePanels != null && switchablePanels.Length > 0 && switchablePanels[0].activeSelf)
+            {
+                if (closetInteractable != null && newPanelAfterKey != null)
+                    closetInteractable.panelToOpen = newPanelAfterKey;
 
-            if (closetSpriteRenderer != null && spriteAfterKey != null)
-                closetSpriteRenderer.sprite = spriteAfterKey;
+                if (closetSpriteRenderer != null && spriteAfterKey != null)
+                    closetSpriteRenderer.sprite = spriteAfterKey;
 
-            redirected = true;
+                redirected = true;
+            }
         }
     }
 
@@ -77,6 +80,7 @@ public class KeyCloset : MonoBehaviour
 
         if (switchablePanels != null && switchablePanels.Length > 0)
         {
+            AudioManager.Instance.PlaySFX("Unlock");
             switchingEnabled = true;
             currentIndex = 0;
 
