@@ -92,6 +92,8 @@ public class RainPuzzleFlow : MonoBehaviour
     private void TriggerRain()
     {
         isRaining = true;
+        AudioManager.Instance.PlaySFX("Raining");
+
         Debug.Log("Rain triggered! isRaining = " + isRaining);
 
         if (mirrorButtonImage != null && mirrorRainSprite != null)

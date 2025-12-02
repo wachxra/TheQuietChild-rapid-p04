@@ -235,6 +235,10 @@ public class Interactable : MonoBehaviour
                 return;
             }
             sharedTextUI.text = currentButtonTextGroup.texts[currentTextIndex];
+
+            if (AudioManager.Instance != null)
+                AudioManager.Instance.PlaySFX("Click");
+
             return;
         }
 
@@ -295,6 +299,9 @@ public class Interactable : MonoBehaviour
             if (currentTextIndex >= 0 && currentTextIndex < group.texts.Length)
                 sharedTextUI.text = group.texts[currentTextIndex];
         }
+
+        if (AudioManager.Instance != null)
+            AudioManager.Instance.PlaySFX("Click");
     }
 
     private GameObject GetActivePanel()

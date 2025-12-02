@@ -4678,6 +4678,10 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: c37017cf5acfed84dbf3825c1eb8de07, type: 3}
     volume: 0.25
     pitch: 1
+  - keyId: Raining
+    clip: {fileID: 8300000, guid: 98e0db66b10845440a11ffbdfe6848f5, type: 3}
+    volume: 0.5
+    pitch: 1
   walkingKeyId: Walking
 --- !u!4 &542548012
 Transform:
