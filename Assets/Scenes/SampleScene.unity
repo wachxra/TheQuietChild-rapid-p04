@@ -2380,7 +2380,7 @@ MonoBehaviour:
   lampPart2UI: {fileID: 1347009391}
   lampPart3UI: {fileID: 71521879}
   panelToChangeColor: {fileID: 1416129062}
-  collectedColor: {r: 1, g: 1, b: 0, a: 1}
+  collectedColor: {r: 1, g: 1, b: 0.64716977, a: 1}
   targetObjectToChangeSprite: {fileID: 338284858}
   newSpriteAfterCollectedAllParts: {fileID: 21300000, guid: a51623ced1d55a9448d4020921af9050, type: 3}
   interactable: {fileID: 547856630}
@@ -4675,23 +4675,23 @@ MonoBehaviour:
     pitch: 1
   - keyId: WaterPlant
     clip: {fileID: 8300000, guid: 7d308292c90b2ec4da597440e21f5d56, type: 3}
-    volume: 0.5
+    volume: 1
     pitch: 3
   - keyId: Unlock
     clip: {fileID: 8300000, guid: 6853b2e92fed7824a966c1ee67e7b25e, type: 3}
-    volume: 0.5
+    volume: 1
     pitch: 1
   - keyId: Click
     clip: {fileID: 8300000, guid: 21eca5c199ed4e942beafed69b366b0c, type: 3}
-    volume: 0.5
+    volume: 1
     pitch: 3
   - keyId: Walking
     clip: {fileID: 8300000, guid: c37017cf5acfed84dbf3825c1eb8de07, type: 3}
-    volume: 0.25
+    volume: 1
     pitch: 1
   - keyId: Raining
     clip: {fileID: 8300000, guid: 98e0db66b10845440a11ffbdfe6848f5, type: 3}
-    volume: 0.5
+    volume: 1
     pitch: 0.5
   - keyId: BookSlot
     clip: {fileID: 8300000, guid: 82db68eeee39f024fbb65543e6e3fac1, type: 3}
@@ -4742,7 +4742,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -5994,7 +5994,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 9179a7ae29954484fa591f0ed0dbce84, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -7847,7 +7847,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -668, y: 396.99997}
+  m_AnchoredPosition: {x: -668, y: 371}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &826063561
@@ -9337,7 +9337,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -668, y: 472}
+  m_AnchoredPosition: {x: -668, y: 446}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &992961326
@@ -12989,7 +12989,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -668, y: 235}
+  m_AnchoredPosition: {x: -668, y: 209.00005}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1400970532
@@ -18312,7 +18312,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -668, y: 304}
+  m_AnchoredPosition: {x: -668, y: 278.00003}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2018290781

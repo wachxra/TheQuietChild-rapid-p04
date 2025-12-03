@@ -55,6 +55,16 @@ public class PhaseManager : MonoBehaviour
 
         if (newPhase != currentPhase)
         {
+            if (currentPhase > 0 && currentPhase <= phases.Length)
+            {
+                PhaseData previousPhase = phases[currentPhase - 1];
+                if (!previousPhase.hasShownText && previousPhase.changePanel && previousPhase.textMessages.Length > 0)
+                {
+                    Debug.Log($"Skipped text of phase {currentPhase} because player didn't interact.");
+                    previousPhase.hasShownText = true;
+                }
+            }
+
             currentPhase = newPhase;
             ApplyPhase();
         }
