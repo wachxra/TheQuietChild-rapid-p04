@@ -3025,7 +3025,14 @@ MonoBehaviour:
   backButton: {fileID: 1766973204}
   textBackground: {fileID: 0}
   textUI: {fileID: 0}
-  textGroups: []
+  textGroups:
+  - texts:
+    - It looks a bit broken
+    - If I find the missing part, it should be fixable
+    panelIndex: 0
+    playOnlyOnce: 1
+    hasPlayed: 0
+    keyEventReplacements: []
   buttonTextGroups: []
   phaseManager: {fileID: 0}
   targetObjectToDestroy: {fileID: 0}
@@ -17007,6 +17014,52 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!1 &1921748131
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1921748133}
+  - component: {fileID: 1921748132}
+  m_Layer: 0
+  m_Name: TextPopUpManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1921748132
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1921748131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a15ae15cee9109d4baf786341e1bce74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TextPopUpManager
+  background: {fileID: 1630582286}
+  messageText: {fileID: 778920001}
+--- !u!4 &1921748133
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1921748131}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.2422, y: -0.03239, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1940557952
 GameObject:
   m_ObjectHideFlags: 0
@@ -19425,3 +19478,4 @@ SceneRoots:
   - {fileID: 1159595861}
   - {fileID: 572744905}
   - {fileID: 542548012}
+  - {fileID: 1921748133}

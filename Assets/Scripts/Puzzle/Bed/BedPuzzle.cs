@@ -25,6 +25,11 @@ public class BedPuzzle : MonoBehaviour
             {
                 Destroy(objectToDestroy);
 
+                TextPopUpManager.ShowMessage(new string[]
+                {
+                    "This is my note!"
+                });
+
                 if (diary != null)
                     diary.AddNextPreparedPage();
             });

@@ -21,5 +21,11 @@ public class ClosetPuzzle : MonoBehaviour
 
         AudioManager.Instance.PlaySFX("PickUp");
         Destroy(batteryButton.gameObject);
+
+        TextPopUpManager.ShowMessage(new string[]
+            {
+                "It looks like the lamp is out of battery",
+                "This little thing should help"
+            });
     }
 }

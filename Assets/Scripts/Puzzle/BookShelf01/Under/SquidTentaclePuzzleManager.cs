@@ -42,6 +42,12 @@ public class SquidTentaclePuzzleManager : MonoBehaviour
             AudioManager.Instance.PlaySFX("PuzzleCompleted");
             FreezeCurrentSequence();
 
+            TextPopUpManager.ShowMessage(new string[]
+            {
+                "I got a bulb?",
+                "If I put this bulb in, the lamp might work again"
+            });
+
             LampPuzzle lampPuzzle = Object.FindFirstObjectByType<LampPuzzle>();
 
             if (lampPuzzle != null)

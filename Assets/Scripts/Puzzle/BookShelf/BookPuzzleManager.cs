@@ -121,6 +121,12 @@ public class BookPuzzleManager : MonoBehaviour
 
         Debug.Log("Puzzle Complete!");
 
+        TextPopUpManager.ShowMessage(new string[]
+            {
+                "I got a note?",
+                "Is this from my diary...?"
+            });
+
         if (diary != null)
             diary.AddNextPreparedPage();
     }

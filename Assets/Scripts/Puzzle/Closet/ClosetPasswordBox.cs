@@ -105,6 +105,7 @@ public class ClosetPasswordBox : MonoBehaviour
         if (enteredPassword == correctPassword)
         {
             passwordUnlocked = true;
+            AudioManager.Instance.PlaySFX("Unlock");
 
             if (panelBButton != null && completedSprite != null)
             {
