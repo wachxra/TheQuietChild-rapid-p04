@@ -67,6 +67,9 @@ public class RainPuzzleFlow : MonoBehaviour
             if (gameObjectB != null)
             {
                 gameObjectB.SetActive(true);
+
+                AudioManager.Instance.PlayRainLoop();
+
                 if (backButton != null)
                     backButton.gameObject.SetActive(true);
             }
@@ -164,6 +167,8 @@ public class RainPuzzleFlow : MonoBehaviour
 
         if (gameObjectB != null && gameObjectB.activeSelf)
             gameObjectB.SetActive(false);
+
+        AudioManager.Instance.StopRainLoop();
 
         if (backButton != null)
             backButton.gameObject.SetActive(false);

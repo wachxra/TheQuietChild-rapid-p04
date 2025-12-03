@@ -19,6 +19,7 @@ public class AudioManager : MonoBehaviour
     [Header("Audio Sources")]
     public AudioSource bgmSource;
     public AudioSource sfxSource;
+    public AudioSource loopSource;
 
     [Header("Sound Effects List")]
     public List<SoundEffect> sfxList = new List<SoundEffect>();
@@ -130,6 +131,43 @@ public class AudioManager : MonoBehaviour
         sfxSource.clip = null;
 
         isWalkingPlaying = false;
+    }
+    #endregion
+
+    [Header("Rain Loop Settings")]
+    public string rainLoopKeyId = "Raining";
+    private bool isRainLoopPlaying = false;
+
+    #region Rain Loop
+    public void PlayRainLoop()
+    {
+        if (loopSource == null || isRainLoopPlaying) return;
+
+        if (!sfxDict.TryGetValue(rainLoopKeyId, out SoundEffect sfx))
+        {
+            Debug.LogWarning($"Rain loop SFX key not found: {rainLoopKeyId}");
+            return;
+        }
+
+        loopSource.Stop();
+        loopSource.clip = sfx.clip;
+        loopSource.volume = sfx.volume;
+        loopSource.pitch = sfx.pitch;
+        loopSource.loop = true;
+        loopSource.Play();
+
+        isRainLoopPlaying = true;
+    }
+
+    public void StopRainLoop()
+    {
+        if (loopSource == null || !isRainLoopPlaying) return;
+
+        loopSource.Stop();
+        loopSource.loop = false;
+        loopSource.clip = null;
+
+        isRainLoopPlaying = false;
     }
     #endregion
 }
