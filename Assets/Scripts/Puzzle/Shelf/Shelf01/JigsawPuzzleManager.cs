@@ -151,6 +151,12 @@ public class JigsawPuzzleManager : MonoBehaviour
         Debug.Log("Puzzle Completed");
         AudioManager.Instance.PlaySFX("PuzzleCompleted");
 
+        TextPopUpManager.ShowMessage(new string[]
+            {
+                "I got... Oh!",
+                "This must be a piece that came off the lamp!"
+            });
+
         for (int i = 0; i < 5; i++)
         {
             if (slots[i].placedPiece != null)

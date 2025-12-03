@@ -4447,6 +4447,7 @@ GameObject:
   - component: {fileID: 542548011}
   - component: {fileID: 542548010}
   - component: {fileID: 542548009}
+  - component: {fileID: 542548013}
   m_Layer: 0
   m_Name: AudioManager
   m_TagString: Untagged
@@ -4662,6 +4663,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AudioManager
   bgmSource: {fileID: 542548010}
   sfxSource: {fileID: 542548009}
+  loopSource: {fileID: 542548013}
   sfxList:
   - keyId: NextPage
     clip: {fileID: 8300000, guid: d21a361e8d8fcf74ca57251dd42b9d86, type: 3}
@@ -4707,6 +4709,10 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: cb43d473b72fc304daac18cb01b2a78c, type: 3}
     volume: 1
     pitch: 3
+  - keyId: FillWater
+    clip: {fileID: 8300000, guid: 7d308292c90b2ec4da597440e21f5d56, type: 3}
+    volume: 1
+    pitch: 3
   walkingKeyId: Walking
   rainLoopKeyId: Raining
 --- !u!4 &542548012
@@ -4724,6 +4730,103 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &542548013
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 542548008}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &547856626
 GameObject:
   m_ObjectHideFlags: 0
@@ -10687,6 +10790,10 @@ MonoBehaviour:
     panelSprite: {fileID: 21300000, guid: 77b08a69d6cc4d14ab1565d816cfc2da, type: 3}
     targetPanelImage2: {fileID: 101478710}
     panelSprite2: {fileID: 21300000, guid: 77b08a69d6cc4d14ab1565d816cfc2da, type: 3}
+    textMessages:
+    - Look at that seedling!
+    - If I water it, it should grow strong and healthy
+    hasShownText: 0
   - changeColor: 1
     changeSprite: 1
     changePanel: 1
@@ -10698,6 +10805,10 @@ MonoBehaviour:
     panelSprite: {fileID: 21300000, guid: 57d249339a6235b4b8e00435396de8fd, type: 3}
     targetPanelImage2: {fileID: 101478710}
     panelSprite2: {fileID: 21300000, guid: 57d249339a6235b4b8e00435396de8fd, type: 3}
+    textMessages:
+    - Wow, you've grown so much!
+    - Now you look like a giant!
+    hasShownText: 0
   - changeColor: 1
     changeSprite: 1
     changePanel: 1
@@ -10709,6 +10820,8 @@ MonoBehaviour:
     panelSprite: {fileID: 21300000, guid: 57d249339a6235b4b8e00435396de8fd, type: 3}
     targetPanelImage2: {fileID: 101478710}
     panelSprite2: {fileID: 21300000, guid: 57d249339a6235b4b8e00435396de8fd, type: 3}
+    textMessages: []
+    hasShownText: 0
   - changeColor: 1
     changeSprite: 1
     changePanel: 1
@@ -10720,6 +10833,9 @@ MonoBehaviour:
     panelSprite: {fileID: 21300000, guid: d77bc5a998cb66f418940d005e5720f1, type: 3}
     targetPanelImage2: {fileID: 101478710}
     panelSprite2: {fileID: 21300000, guid: d77bc5a998cb66f418940d005e5720f1, type: 3}
+    textMessages:
+    - I'm sorry, little plant
+    hasShownText: 0
 --- !u!4 &1159595861
 Transform:
   m_ObjectHideFlags: 0

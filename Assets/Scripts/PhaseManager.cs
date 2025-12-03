@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using System.Collections;
 
 [System.Serializable]
 public class PhaseData
@@ -24,6 +25,11 @@ public class PhaseData
     [Header("Panel Change (UI Image) - Secondary")]
     public Image targetPanelImage2;
     public Sprite panelSprite2;
+
+    [Header("Text PopUp for Panels")]
+    public string[] textMessages;
+    [HideInInspector]
+    public bool hasShownText = false;
 }
 
 public class PhaseManager : MonoBehaviour
@@ -61,26 +67,40 @@ public class PhaseManager : MonoBehaviour
         PhaseData phase = phases[currentPhase - 1];
 
         if (phase.changeColor && phase.targetColorRenderer != null)
-        {
             phase.targetColorRenderer.color = phase.sceneColor;
-        }
 
         if (phase.changeSprite && phase.targetSpriteRenderer != null && phase.sceneSprite != null)
-        {
             phase.targetSpriteRenderer.sprite = phase.sceneSprite;
-        }
 
-        if (phase.changePanel && phase.targetPanelImage != null && phase.panelSprite != null)
+        if (phase.changePanel)
         {
-            phase.targetPanelImage.sprite = phase.panelSprite;
-        }
+            if (phase.targetPanelImage != null && phase.panelSprite != null)
+            {
+                phase.targetPanelImage.sprite = phase.panelSprite;
+                StartCoroutine(CheckPanelActive(phase.targetPanelImage, phase));
+            }
 
-        if (phase.changePanel && phase.targetPanelImage2 != null && phase.panelSprite2 != null)
-        {
-            phase.targetPanelImage2.sprite = phase.panelSprite2;
+            if (phase.targetPanelImage2 != null && phase.panelSprite2 != null)
+            {
+                phase.targetPanelImage2.sprite = phase.panelSprite2;
+                StartCoroutine(CheckPanelActive(phase.targetPanelImage2, phase));
+            }
         }
 
         Debug.Log($"Phase {currentPhase} applied!");
+    }
+
+    private IEnumerator CheckPanelActive(Image panel, PhaseData phase)
+    {
+        while (true)
+        {
+            if (panel.gameObject.activeInHierarchy && !phase.hasShownText && phase.textMessages.Length > 0)
+            {
+                TextPopUpManager.ShowMessage(phase.textMessages);
+                phase.hasShownText = true;
+            }
+            yield return null;
+        }
     }
 
     public bool CurrentPhaseIsLast()

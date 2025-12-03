@@ -1,40 +1,40 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Video;
 
 public class VideoSceneLoader : MonoBehaviour
 {
-    private VideoPlayer videoPlayer;
+    public VideoPlayer videoPlayer;
+
+    [Header("Video Settings")]
+    public string videoFileName;
     public string nextSceneName;
 
-    void Start()
+    private void Start()
     {
-        videoPlayer = GetComponent<VideoPlayer>();
-
         if (videoPlayer == null)
         {
+            Debug.LogWarning("VideoPlayer component not assigned!");
             return;
         }
+
+        string videoURL = System.IO.Path.Combine(Application.streamingAssetsPath, videoFileName);
+        videoPlayer.source = VideoSource.Url;
+        videoPlayer.url = videoURL;
 
         videoPlayer.loopPointReached += OnVideoEnd;
         videoPlayer.Play();
     }
 
-    void OnVideoEnd(VideoPlayer vp)
+    private void OnVideoEnd(VideoPlayer vp)
     {
-        Debug.Log("Loading next scene: " + nextSceneName);
-
         if (!string.IsNullOrEmpty(nextSceneName))
         {
             SceneManager.LoadScene(nextSceneName);
         }
-    }
-
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Space))
+        else
         {
-            OnVideoEnd(videoPlayer);
+            Debug.Log("No next scene specified.");
         }
     }
 }
