@@ -114,6 +114,7 @@ public class BookPuzzleManager : MonoBehaviour
     void PuzzleCompleted()
     {
         puzzleCompleted = true;
+        AudioManager.Instance.PlaySFX("PuzzleCompleted");
 
         foreach (var slot in bookSlots)
             slot.canDrag = false;

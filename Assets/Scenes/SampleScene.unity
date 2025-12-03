@@ -2383,6 +2383,7 @@ MonoBehaviour:
   collectedColor: {r: 1, g: 1, b: 0, a: 1}
   targetObjectToChangeSprite: {fileID: 338284858}
   newSpriteAfterCollectedAllParts: {fileID: 21300000, guid: a51623ced1d55a9448d4020921af9050, type: 3}
+  interactable: {fileID: 547856630}
 --- !u!4 &222413146
 Transform:
   m_ObjectHideFlags: 0
@@ -4682,13 +4683,21 @@ MonoBehaviour:
   - keyId: Raining
     clip: {fileID: 8300000, guid: 98e0db66b10845440a11ffbdfe6848f5, type: 3}
     volume: 0.5
-    pitch: 1
+    pitch: 0.5
   - keyId: BookSlot
     clip: {fileID: 8300000, guid: 82db68eeee39f024fbb65543e6e3fac1, type: 3}
     volume: 1
     pitch: 1
   - keyId: JigsawSlot
     clip: {fileID: 8300000, guid: 9993f160639f80446af144c953449c5d, type: 3}
+    volume: 1
+    pitch: 3
+  - keyId: LampFixed
+    clip: {fileID: 8300000, guid: 7673e21c20a115b4585201e616f1a7ab, type: 3}
+    volume: 1
+    pitch: 3
+  - keyId: PuzzleCompleted
+    clip: {fileID: 8300000, guid: cb43d473b72fc304daac18cb01b2a78c, type: 3}
     volume: 1
     pitch: 3
   walkingKeyId: Walking
@@ -4872,7 +4881,10 @@ MonoBehaviour:
     panelIndex: 0
     playOnlyOnce: 1
     hasPlayed: 0
-    keyEventReplacements: []
+    keyEventReplacements:
+    - eventKey: LampFixed
+      newTexts:
+      - Now I can see!
   buttonTextGroups: []
   phaseManager: {fileID: 0}
   targetObjectToDestroy: {fileID: 0}
@@ -5125,7 +5137,7 @@ MonoBehaviour:
     hasPlayed: 0
   - button: {fileID: 2141613465}
     texts:
-    - When I was a kid, I used to play with these a lot
+    - Maybe if I make enough of you, my wish will come true
     playOnlyOnce: 0
     hasPlayed: 0
   - button: {fileID: 878162418}
@@ -14129,6 +14141,7 @@ MonoBehaviour:
   gameObjectA: {fileID: 101478708}
   keyButton: {fileID: 141032805}
   keyCollectedSprite: {fileID: 3773669205137636389, guid: 424dfcd916a6eb648b9ae22430c3c3f0, type: 3}
+  interactable: {fileID: 2018284342}
 --- !u!4 &1537932789
 Transform:
   m_ObjectHideFlags: 0
@@ -14804,7 +14817,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CollectBook
   puzzleManager: {fileID: 708221704}
   slotToActivate: {fileID: 960062465}
-  interactable: {fileID: 0}
+  interactable: {fileID: 1384325681}
 --- !u!1 &1630582286
 GameObject:
   m_ObjectHideFlags: 0
@@ -18087,7 +18100,10 @@ MonoBehaviour:
     panelIndex: 0
     playOnlyOnce: 1
     hasPlayed: 0
-    keyEventReplacements: []
+    keyEventReplacements:
+    - eventKey: HasKey
+      newTexts:
+      - I already has a key!
   buttonTextGroups: []
   phaseManager: {fileID: 0}
   targetObjectToDestroy: {fileID: 0}

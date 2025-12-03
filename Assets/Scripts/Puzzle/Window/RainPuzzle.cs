@@ -125,25 +125,36 @@ public class RainPuzzleFlow : MonoBehaviour
         }
     }
 
+    private int rainWaterClickCount = 0;
+
     private void PickupRainWater()
     {
-        if (!hasGlass)
+        rainWaterClickCount++;
+
+        if (rainWaterClickCount == 1)
         {
-            Debug.Log("Cannot collect rain water without a glass!");
             return;
         }
 
-        if (!isRaining)
+        if (rainWaterClickCount >= 2)
         {
-            Debug.Log("Cannot collect rain water until the rain has started!");
-            return;
+            if (!hasGlass)
+            {
+                return;
+            }
+
+            if (!isRaining)
+            {
+                return;
+            }
+
+            hasRainWater = true;
+            AudioManager.Instance.PlaySFX("WaterPlant");
+            Debug.Log("Rain water collected! hasRainWater = " + hasRainWater);
+
+            if (rainWaterButton != null)
+                Destroy(rainWaterButton.gameObject);
         }
-
-        hasRainWater = true;
-        Debug.Log("Rain water collected! hasRainWater = " + hasRainWater);
-
-        if (rainWaterButton != null)
-            Destroy(rainWaterButton.gameObject);
     }
 
     private void CloseCurrentPanel()

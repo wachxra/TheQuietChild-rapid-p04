@@ -149,6 +149,7 @@ public class JigsawPuzzleManager : MonoBehaviour
     private void PuzzleCompleted()
     {
         Debug.Log("Puzzle Completed");
+        AudioManager.Instance.PlaySFX("PuzzleCompleted");
 
         for (int i = 0; i < 5; i++)
         {

@@ -39,6 +39,7 @@ public class SquidTentaclePuzzleManager : MonoBehaviour
         {
             Debug.Log("Puzzle Completed");
             isPuzzleCompleted = true;
+            AudioManager.Instance.PlaySFX("PuzzleCompleted");
             FreezeCurrentSequence();
 
             LampPuzzle lampPuzzle = Object.FindFirstObjectByType<LampPuzzle>();

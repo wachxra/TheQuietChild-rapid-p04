@@ -20,6 +20,8 @@ public class LampPuzzle : MonoBehaviour
     public static bool hasLampPart2 = false;
     public static bool hasLampPart3 = false;
 
+    public Interactable interactable;
+
     private void Awake()
     {
         if (lampPart1UI != null) lampPart1UI.SetActive(false);
@@ -70,6 +72,9 @@ public class LampPuzzle : MonoBehaviour
             {
                 panelToChangeColor.color = collectedColor;
                 Debug.Log("All parts collected! Panel color changed.");
+
+                AudioManager.Instance.PlaySFX("LampFixed");
+                interactable.TriggerKeyEvent("LampFixed");
             }
 
             if (targetObjectToChangeSprite != null && newSpriteAfterCollectedAllParts != null)

@@ -12,6 +12,7 @@ public class PlantKeyPuzzle : MonoBehaviour
     public Sprite keyCollectedSprite;
 
     public static bool hasKey = false;
+    public Interactable interactable;
 
     private void Awake()
     {
@@ -47,6 +48,7 @@ public class PlantKeyPuzzle : MonoBehaviour
     {
         hasKey = true;
         AudioManager.Instance.PlaySFX("PickUp");
+        interactable.TriggerKeyEvent("HasKey");
         Debug.Log("Key collected! hasKey = " + hasKey);
 
         if (keyButton != null && keyCollectedSprite != null)
