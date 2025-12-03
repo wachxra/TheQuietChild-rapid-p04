@@ -75,6 +75,8 @@ public class LampPuzzle : MonoBehaviour
 
                 AudioManager.Instance.PlaySFX("LampFixed");
                 interactable.TriggerKeyEvent("LampFixed");
+
+                AudioManager.Instance.PlaySFX("PuzzleCompleted");
             }
 
             if (targetObjectToChangeSprite != null && newSpriteAfterCollectedAllParts != null)
